@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2013-02-07T11:13:04Z" product-name="infinitescrolling">
+		<header/>
+		<body>
+			<trans-unit id="constants.jQuery" xml:space="preserve" approved="yes">
+				<source>Include jQuery file: Enter the jQuery file to include. If you don't need it clear this constant</source>
+				<target>jQuery einbinden: Trage hier die jQuery Version ein, die geladen werden soll. Bringt Deine Webseite bereits jQuery mit, dann leere diese Konstante und jQuery wird nicht zusätzlich in Deine Webseite eingebunden</target>
+			</trans-unit>
+			<trans-unit id="constants.container" xml:space="preserve" approved="yes">
+				<source>Selector for container: Enter the identifier which selects only the items/entries you want to paginate. Sample: div.news-list-container</source>
+				<target>Container wählen: Trage hier den jQuery Bezeichner für den Container der kompletten Liste ein. Zum Beispiel: div.news-list-container</target>
+			</trans-unit>
+			<trans-unit id="constants.scrollContainer" xml:space="preserve" approved="yes">
+				<source>Selector for Scroll Container: In which container the scrollbar is placed? Sample: jQuery(window)</source>
+				<target>Container mit Scrollbar: Trage hier den jQuery Bezeichner für den Container ein, der die Scrollleiste beinhaltet. Zum Beispiel: jQuery(window)</target>
+			</trans-unit>
+			<trans-unit id="constants.item" xml:space="preserve" approved="yes">
+				<source>Selector for Item: Enter the identifier which selects one single item within the list container. Sample: div.news-list-item</source>
+				<target>Eintrag wählen: Trage hier den jQuery Bezeichner für einen einzelnen Eintrag innerhalb des Listencontainer ein: Zum Beispiel: div.news-list-item</target>
+			</trans-unit>
+			<trans-unit id="constants.pagination" xml:space="preserve" approved="yes">
+				<source>Selector for Paginator: Enter the identifier for the paginator. This part will be set to display:none if infinite scrolling works. Sample: div.news-list-browse</source>
+				<target>Navigator wählen: Trage hier einen jQuery Bezeichner für die Seitennavigation (Vorherige, Seite1, Seite2, Nächste) ein. Zum Beispiel: div.news-list-browse</target>
+			</trans-unit>
+			<trans-unit id="constants.next" xml:space="preserve" approved="yes">
+				<source>Selector for next link: Enter the identifier for the next link. InfiniteScrolling will read the href attribute to read the container of next page and append it to current container. Sample: div.browseLinksWrap a:eq(-2)</source>
+				<target>Nächsten Link wählen: Trage hier einen jQuery Bezeichner für den nächsten Link ein. InfiniteScrolling liest dann den enthaltenen href aus und läd im Hintergrund von dieser Seite den oben angegebenen Container aus und fügt diesen dann dem Container der aktuellen Seite an. Zum Beispiel: div.browseLinksWrap a:eq(-2)</target>
+			</trans-unit>
+			<trans-unit id="constants.loader" xml:space="preserve" approved="yes">
+				<source>Loader icon: Enter your own loader icon if you want. Please enter a full img-tag including src, alt, width and height attributes</source>
+				<target>Bild für Ladestatus: Hier kannst Du Dein eigenes Bild für den Ladestatus angeben. Dieses wird nur dann angezeigt, wenn Daten aktuell nachgeladen werden. Bitte gib hier einen vollständigen img-Tag mit den Attributen src, alt, width und height an</target>
+			</trans-unit>
+			<trans-unit id="constants.loaderDelay" xml:space="preserve" approved="yes">
+				<source>Loader delay: If you want the user to see the loader icon working you should set this value to something higher than 0. Values in milliseconds. If you want to show the data directly it's better to set this value to 0</source>
+				<target>Nachlade Verzögerung: Wenn Du Deinen Besuchern zeigen willst, was für ein tolles Ladebildchen Du hast, dann setz diesen Wert etwas höher und das Bildchen bleibt länger sichtbar. Wenn es Dir allerdings darum geht den nachgeladenen Inhalt möglichst zügig zu zeigen, dann setz den Wert auf 0</target>
+			</trans-unit>
+			<trans-unit id="constants.triggerPageThreshold" xml:space="preserve" approved="yes">
+				<source>Amount of requests: Infinite scrolling works to the given amount of requests. If requests are reached a link for requesting additional data appears</source>
+				<target>Anzahl der Anfragen: Das Nachladen beim endlosen scrollen klappt nur so oft, wie hier angegeben. Nach Erreichen diesen Wertes erscheint unterhalb der Liste ein Link, mit dem der Besucher manuell weitere Daten anfordern kann</target>
+			</trans-unit>
+			<trans-unit id="constants.trigger" xml:space="preserve" approved="yes">
+				<source>Request Text: This is the text for the link above</source>
+				<target>Linktext für Anfragen: Hier könnt Ihr einen individuellen Text für den Nachladelink angeben</target>
+			</trans-unit>
+			<trans-unit id="constants.thresholdMargin" xml:space="preserve" approved="yes">
+				<source>Request Margin: When should the request start? If 0 request starts if the user scrolls to bottom of page. If you enter -100 the request starts just 100 Pixel before bottom of page is reached. Positive values does not work!</source>
+				<target>Abstand zum Nachladen: Bei 0 wird der Inhalt erst beim Erreichen des unteren Randes geladen. Bei -100 wird der Inhalt geladen, wenn der Scrollbalken 100 Pixel vor Erreichen des unteren Randes steht.</target>
+			</trans-unit>
+			<trans-unit id="constants.noneleft" xml:space="preserve" approved="yes">
+				<source>None left: None left</source>
+				<target>Nicht links: Doku folgt</target>
+			</trans-unit>
+			<trans-unit id="constants.history" xml:space="preserve" approved="yes">
+				<source>History: History</source>
+				<target>Vergangenheit: Doku folgt</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

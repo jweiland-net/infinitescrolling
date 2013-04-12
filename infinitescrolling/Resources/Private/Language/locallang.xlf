@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2013-02-07T11:13:04Z" product-name="infinitescrolling">
+		<header/>
+		<body>
+			<trans-unit id="constants.jQuery" xml:space="preserve" approved="yes">
+				<source>Include jQuery file: Enter the jQuery file to include. If you don't need it clear this constant</source>
+			</trans-unit>
+			<trans-unit id="constants.container" xml:space="preserve" approved="yes">
+				<source>Selector for container: Enter the identifier which selects only the items/entries you want to paginate. Sample: div.news-list-container</source>
+			</trans-unit>
+			<trans-unit id="constants.scrollContainer" xml:space="preserve" approved="yes">
+				<source>Selector for Scroll Container: In which container the scrollbar is placed? Sample: $(window)</source>
+			</trans-unit>
+			<trans-unit id="constants.item" xml:space="preserve" approved="yes">
+				<source>Selector for Item: Enter the identifier which selects one single item within the list container. Sample: div.news-list-item</source>
+			</trans-unit>
+			<trans-unit id="constants.pagination" xml:space="preserve" approved="yes">
+				<source>Selector for Paginator: Enter the identifier for the paginator. This part will be set to display:none if infinite scrolling works. Sample: div.news-list-browse</source>
+			</trans-unit>
+			<trans-unit id="constants.next" xml:space="preserve" approved="yes">
+				<source>Selector for next link: Enter the identifier for the next link. InfiniteScrolling will read the href attribute to read the container of next page and append it to current container. Sample: div.browseLinksWrap a:eq(-2)</source>
+			</trans-unit>
+			<trans-unit id="constants.loader" xml:space="preserve" approved="yes">
+				<source>Loader icon: Enter your own loader icon if you want. Please enter a full img-tag including src, alt, width and height attributes</source>
+			</trans-unit>
+			<trans-unit id="constants.loaderDelay" xml:space="preserve" approved="yes">
+				<source>Loader delay: If you want the user to see the loader icon working you should set this value to something higher than 0. Values in milliseconds. If you want to show the data directly it's better to set this value to 0</source>
+			</trans-unit>
+			<trans-unit id="constants.triggerPageThreshold" xml:space="preserve" approved="yes">
+				<source>Amount of requests: Infinite scrolling works to the given amount of requests. If requests are reached a link for requesting additional data appears</source>
+			</trans-unit>
+			<trans-unit id="constants.trigger" xml:space="preserve" approved="yes">
+				<source>Request Text: This is the text for the link above</source>
+			</trans-unit>
+			<trans-unit id="constants.thresholdMargin" xml:space="preserve" approved="yes">
+				<source>Request Margin: When should the request start? If 0 request starts if the user scrolls to bottom of page. If you enter -100 the request starts just 100 Pixel before bottom of page is reached. Positive values does not work!</source>
+			</trans-unit>
+			<trans-unit id="constants.noneleft" xml:space="preserve" approved="yes">
+				<source>None left: None left</source>
+			</trans-unit>
+			<trans-unit id="constants.history" xml:space="preserve" approved="yes">
+				<source>History: History</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

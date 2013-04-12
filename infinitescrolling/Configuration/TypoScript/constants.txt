@@ -1,0 +1,26 @@
+plugin.tx_infinitescrolling {
+  # cat=InfiniteScrolling/scroll/a; type=string; label=LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:constants.jQuery
+  jQuery = //ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js
+  # cat=InfiniteScrolling/scroll/b; type=string; label=LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:constants.container
+  container =
+  # cat=InfiniteScrolling/scroll/c; type=string; label=LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:constants.scrollContainer
+  scrollContainer = jQuery(window)
+  # cat=InfiniteScrolling/scroll/d; type=string; label=LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:constants.item
+  item =
+  # cat=InfiniteScrolling/scroll/e; type=string; label=LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:constants.pagination
+  pagination =
+  # cat=InfiniteScrolling/scroll/f; type=string; label=LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:constants.next
+  next =
+  # cat=InfiniteScrolling/scroll/g; type=string; label=LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:constants.loader
+  loader = <img src='typo3conf/ext/infinitescrolling/Resources/Public/JavaScript/Ias/images/loader.gif' alt='ajax-loader' />
+  # cat=InfiniteScrolling/scroll/h; type=string; label=LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:constants.triggerPageThreshold
+  triggerPageThreshold = 20
+  # cat=InfiniteScrolling/scroll/i; type=string; label=LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:constants.trigger
+  trigger = Load more items
+  # cat=InfiniteScrolling/scroll/j; type=int+; label=LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:constants.loaderDelay
+  loaderDelay = 0
+  # cat=InfiniteScrolling/scroll/k; type=int; label=LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:constants.thresholdMargin
+  thresholdMargin = -200
+  # cat=InfiniteScrolling/scroll/l; type=boolean; label=LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:constants.history
+  history = 1
+}
