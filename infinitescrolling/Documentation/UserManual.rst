@@ -14,3 +14,5 @@ extension plugin or the HTML template.
 
 The page browser only hidden on the page, not deleted. Therefore the page browser is still accessible, e.g. for screen
 readers.
+
+The extension implements the jQuery plugin 'jquery-ias.js' by Jeroen Fiege. For details visit http://www.fieg.nl/infinite-ajax-scroll-a-jquery-plugin

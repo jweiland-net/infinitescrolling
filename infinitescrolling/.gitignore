@@ -1,0 +1,18 @@
+# git ignore file
+
+*~
+*.bak
+*.idea
+*.project
+*.swp
+*.pyc
+.buildpath
+.cache
+.project
+.session
+.settings
+.TemporaryItems
+.webprj
+nbproject
+
+*NOT_VERSIONED*
