@@ -18,7 +18,7 @@ Infinite Scrolling
 :Description: Infinite Scrolling extension to replace page browser in list view
 :Copyright: 2013
 :Author: Stefan Frömken (Code), Jochen Weiland (Documentation)
-:Email: sfroemken@jweiland.net, jweiland@jweiland.net
+:Email: projects@jweiland.net, jweiland@jweiland.net
 :Licence: Open Content License available from `www.opencontent.org/opl.shtml <http://www.opencontent.org/opl.shtml>`_
 
 The content of this document is related to TYPO3,
