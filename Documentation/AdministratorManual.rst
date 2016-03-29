@@ -9,7 +9,7 @@ Target group: **Administrators**
 Installation
 =============
 
-The extension requires TYPO3 version 4.5 or higher.
+The extension requires TYPO3 version 6.2 or higher.
 
 Install the extension via the extension manager. There are no changes to the database structure or configuration
 options in the extension manager
