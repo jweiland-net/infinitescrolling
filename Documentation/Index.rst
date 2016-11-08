@@ -13,7 +13,7 @@ Infinite Scrolling
 
 :Extension name: Infinite Scrolling
 :Extension key: infinitescrolling
-:Version: 1.1.2
+:Version: 1.2.0
 :Language: en
 :Description: Infinite Scrolling extension to replace page browser in list view
 :Copyright: 2013

@@ -30,3 +30,7 @@ Change Log
 1.0.1 - Initial release
 1.0.2 - changed manual format (no code changes)
 1.0.3 - removed default doc/manual.sxw file (no code changes)
+1.0.5 - Update email addresses
+1.1.0 - Compatibility for TYPO3 6.2 and 7.6
+1.1.1 - Update version in ext_emconf.php
+1.2.0 - Update documentation, Compatibility for TYPO3 8. Remove unneeded files
