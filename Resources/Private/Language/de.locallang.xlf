@@ -52,8 +52,8 @@
 				<target>Nicht links: Doku folgt</target>
 			</trans-unit>
 			<trans-unit id="constants.history" xml:space="preserve" approved="yes">
-				<source>History: History</source>
-				<target>Vergangenheit: Doku folgt</target>
+				<source>When this option is enabled, the extension will add anchors to the URL of the page in the form #/page/1, #/page/2. This feature allows to set bookmarks in the browser to a specific section of the list.</source>
+				<target>Wenn diese Option aktiviert wird, dann wird an den Links ein zusätzlicher Parameter wie #/page/1, #/page/2 angehangen. Auf diese Weise können Webseiten-Besucher Bookmarks zu den spezifischen Seiten erstellen.</target>
 			</trans-unit>
 		</body>
 	</file>

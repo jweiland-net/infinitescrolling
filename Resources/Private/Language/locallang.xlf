@@ -40,7 +40,7 @@
 				<source>None left: None left</source>
 			</trans-unit>
 			<trans-unit id="constants.history" xml:space="preserve" approved="yes">
-				<source>History: History</source>
+				<source>When this option is enabled, the extension will add anchors to the URL of the page in the form #/page/1, #/page/2. This feature allows to set bookmarks in the browser to a specific section of the list.</source>
 			</trans-unit>
 		</body>
 	</file>

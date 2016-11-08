@@ -1,1 +1,0 @@
-The documentation for this extension can be found in the 'Documentation' folder (ReST Format)

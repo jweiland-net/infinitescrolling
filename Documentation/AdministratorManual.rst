@@ -1,13 +1,13 @@
-﻿============================
+﻿====================
 Administrator Manual
-============================
+====================
 
 Infinite scroll is a frontend extension without plugin.
 
 Target group: **Administrators**
 
 Installation
-=============
+============
 
 The extension requires TYPO3 version 6.2 or higher.
 
@@ -27,9 +27,7 @@ supplied Infinite Scrolling module:
 Switch to the constant editor to configure the extension and select the INFINITESCROLLING category:
 
 .. figure:: Images/infinite-scroll-ts-constants1.png
-
 	:width: 400px
-
 	:alt: Configuration of TypoScript constants
 
 	Configuration of TypoScript constants (1)
@@ -49,13 +47,14 @@ The following configuration example is for the tt_news extension:
 	The plug-in typically has a <div> container which encloses the complete list-view. Enter the div attribute and
 	class name here. For tt_news this is *div.news-list-container*
 
-[3]	Selector for scroll container
+[3] Selector for scroll container
+	You only need to change that, if you need infinitescrolling for scrollbars in iframes.
 
 [4] Selector for item
 	Each data record in the list view is surrounded by a <div> container. Enter the div attribute and
 	class name here. For tt_news this is *div.news-list-item*
 
-[5]	Selector for paginator
+[5] Selector for paginator
 	The page browser above or below the list view is enclosed in a <div> container. Enter the div attribute and
 	class name here. For tt_news this is *div.news-list-browse*
 
@@ -65,7 +64,6 @@ The following configuration example is for the tt_news extension:
 
 .. code-block:: html
    :emphasize-lines: 10,10
-
 
 	<div class="news-list-browse">
 		<div class="browseLinksWrap">
