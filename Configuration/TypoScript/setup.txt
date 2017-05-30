@@ -1,9 +1,9 @@
 page.includeJSlibs {
-	infiniteScrolling_jQuery = {$plugin.tx_infinitescrolling.jQuery}
-	infiniteScrolling_jQuery.external = 1
-	infiniteScrolling_jQuery.forceOnTop = 1
-	infiniteScrolling_jQuery.excludeFromConcatenation = 1
-	infiniteScrolling_jQuery.disableCompression = 1
+  infiniteScrolling_jQuery = {$plugin.tx_infinitescrolling.jQuery}
+  infiniteScrolling_jQuery.external = 1
+  infiniteScrolling_jQuery.forceOnTop = 1
+  infiniteScrolling_jQuery.excludeFromConcatenation = 1
+  infiniteScrolling_jQuery.disableCompression = 1
   infiniteScrolling_ias = typo3conf/ext/infinitescrolling/Resources/Public/JavaScript/Ias/jquery-ias.js
 }
 
@@ -15,34 +15,34 @@ page.jsInline {
   20 = TEXT
   20.cObject = COA
   20.cObject {
-  	10 = TEXT
-  	10.value = container: "{$plugin.tx_infinitescrolling.container}",
-  	20 = TEXT
-  	20.value = scrollContainer: {$plugin.tx_infinitescrolling.scrollContainer},
-  	30 = TEXT
-  	30.value = item: "{$plugin.tx_infinitescrolling.item}",
-  	40 = TEXT
-  	40.value = pagination: "{$plugin.tx_infinitescrolling.pagination}",
-  	50 = TEXT
-  	50.value = next: "{$plugin.tx_infinitescrolling.next}",
-  	60 = TEXT
-  	60.value = loader: "{$plugin.tx_infinitescrolling.loader}",
-  	70 = TEXT
-  	70.value = triggerPageThreshold: {$plugin.tx_infinitescrolling.triggerPageThreshold},
-  	80 = TEXT
-  	80.dataWrap = trigger: "{register:iasTriggerLinkText}",
-  	90 = TEXT
-  	90.value = loaderDelay: {$plugin.tx_infinitescrolling.loaderDelay},
-  	100 = TEXT
-  	100.value = thresholdMargin: {$plugin.tx_infinitescrolling.thresholdMargin},
-  	110 = TEXT
-  	110.value = history: {$plugin.tx_infinitescrolling.history}
+    10 = TEXT
+    10.value = container: "{$plugin.tx_infinitescrolling.container}",
+    20 = TEXT
+    20.value = scrollContainer: {$plugin.tx_infinitescrolling.scrollContainer},
+    30 = TEXT
+    30.value = item: "{$plugin.tx_infinitescrolling.item}",
+    40 = TEXT
+    40.value = pagination: "{$plugin.tx_infinitescrolling.pagination}",
+    50 = TEXT
+    50.value = next: "{$plugin.tx_infinitescrolling.next}",
+    60 = TEXT
+    60.value = loader: "{$plugin.tx_infinitescrolling.loader}",
+    70 = TEXT
+    70.value = triggerPageThreshold: {$plugin.tx_infinitescrolling.triggerPageThreshold},
+    80 = TEXT
+    80.dataWrap = trigger: "{register:iasTriggerLinkText}",
+    90 = TEXT
+    90.value = loaderDelay: {$plugin.tx_infinitescrolling.loaderDelay},
+    100 = TEXT
+    100.value = thresholdMargin: {$plugin.tx_infinitescrolling.thresholdMargin},
+    110 = TEXT
+    110.value = history: {$plugin.tx_infinitescrolling.history}
   }
   20.wrap (
-  	jQuery(function() {
-			jQuery.ias({|});
-		});
-	)
+    jQuery(function() {
+      jQuery.ias({|});
+    });
+  )
 
   30 = RESTORE_REGISTER
 }
