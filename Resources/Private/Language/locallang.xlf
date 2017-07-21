@@ -24,23 +24,14 @@
       <trans-unit id="constants.loader" xml:space="preserve" approved="yes">
         <source>Loader icon: Enter your own loader icon if you want. Please enter a full img-tag including src, alt, width and height attributes</source>
       </trans-unit>
-      <trans-unit id="constants.loaderDelay" xml:space="preserve" approved="yes">
+      <trans-unit id="constants.delay" xml:space="preserve" approved="yes">
         <source>Loader delay: If you want the user to see the loader icon working you should set this value to something higher than 0. Values in milliseconds. If you want to show the data directly it's better to set this value to 0</source>
       </trans-unit>
-      <trans-unit id="constants.triggerPageThreshold" xml:space="preserve" approved="yes">
-        <source>Amount of requests: Infinite scrolling works to the given amount of requests. If requests are reached a link for requesting additional data appears</source>
-      </trans-unit>
-      <trans-unit id="constants.trigger" xml:space="preserve" approved="yes">
-        <source>Request Text: This is the text for the link above</source>
-      </trans-unit>
-      <trans-unit id="constants.thresholdMargin" xml:space="preserve" approved="yes">
+      <trans-unit id="constants.negativeMargin" xml:space="preserve" approved="yes">
         <source>Request Margin: When should the request start? If 0 request starts if the user scrolls to bottom of page. If you enter -100 the request starts just 100 Pixel before bottom of page is reached. Positive values does not work!</source>
       </trans-unit>
       <trans-unit id="constants.noneleft" xml:space="preserve" approved="yes">
         <source>None left: None left</source>
-      </trans-unit>
-      <trans-unit id="constants.history" xml:space="preserve" approved="yes">
-        <source>When this option is enabled, the extension will add anchors to the URL of the page in the form #/page/1, #/page/2. This feature allows to set bookmarks in the browser to a specific section of the list.</source>
       </trans-unit>
     </body>
   </file>

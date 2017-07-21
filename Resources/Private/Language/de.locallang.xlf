@@ -31,29 +31,17 @@
         <source>Loader icon: Enter your own loader icon if you want. Please enter a full img-tag including src, alt, width and height attributes</source>
         <target>Bild für Ladestatus: Hier kannst Du Dein eigenes Bild für den Ladestatus angeben. Dieses wird nur dann angezeigt, wenn Daten aktuell nachgeladen werden. Bitte gib hier einen vollständigen img-Tag mit den Attributen src, alt, width und height an</target>
       </trans-unit>
-      <trans-unit id="constants.loaderDelay" xml:space="preserve" approved="yes">
+      <trans-unit id="constants.delay" xml:space="preserve" approved="yes">
         <source>Loader delay: If you want the user to see the loader icon working you should set this value to something higher than 0. Values in milliseconds. If you want to show the data directly it's better to set this value to 0</source>
         <target>Nachlade Verzögerung: Wenn Du Deinen Besuchern zeigen willst, was für ein tolles Ladebildchen Du hast, dann setz diesen Wert etwas höher und das Bildchen bleibt länger sichtbar. Wenn es Dir allerdings darum geht den nachgeladenen Inhalt möglichst zügig zu zeigen, dann setz den Wert auf 0</target>
       </trans-unit>
-      <trans-unit id="constants.triggerPageThreshold" xml:space="preserve" approved="yes">
-        <source>Amount of requests: Infinite scrolling works to the given amount of requests. If requests are reached a link for requesting additional data appears</source>
-        <target>Anzahl der Anfragen: Das Nachladen beim endlosen scrollen klappt nur so oft, wie hier angegeben. Nach Erreichen diesen Wertes erscheint unterhalb der Liste ein Link, mit dem der Besucher manuell weitere Daten anfordern kann</target>
-      </trans-unit>
-      <trans-unit id="constants.trigger" xml:space="preserve" approved="yes">
-        <source>Request Text: This is the text for the link above</source>
-        <target>Linktext für Anfragen: Hier könnt Ihr einen individuellen Text für den Nachladelink angeben</target>
-      </trans-unit>
-      <trans-unit id="constants.thresholdMargin" xml:space="preserve" approved="yes">
+      <trans-unit id="constants.negativeMargin" xml:space="preserve" approved="yes">
         <source>Request Margin: When should the request start? If 0 request starts if the user scrolls to bottom of page. If you enter -100 the request starts just 100 Pixel before bottom of page is reached. Positive values does not work!</source>
         <target>Abstand zum Nachladen: Bei 0 wird der Inhalt erst beim Erreichen des unteren Randes geladen. Bei -100 wird der Inhalt geladen, wenn der Scrollbalken 100 Pixel vor Erreichen des unteren Randes steht.</target>
       </trans-unit>
       <trans-unit id="constants.noneleft" xml:space="preserve" approved="yes">
         <source>None left: None left</source>
         <target>Nicht links: Doku folgt</target>
-      </trans-unit>
-      <trans-unit id="constants.history" xml:space="preserve" approved="yes">
-        <source>When this option is enabled, the extension will add anchors to the URL of the page in the form #/page/1, #/page/2. This feature allows to set bookmarks in the browser to a specific section of the list.</source>
-        <target>Wenn diese Option aktiviert wird, dann wird an den Links ein zusätzlicher Parameter wie #/page/1, #/page/2 angehangen. Auf diese Weise können Webseiten-Besucher Bookmarks zu den spezifischen Seiten erstellen.</target>
       </trans-unit>
     </body>
   </file>

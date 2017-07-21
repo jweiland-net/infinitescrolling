@@ -30,23 +30,17 @@ page.jsFooterInline {
     40.value = pagination: "{$plugin.tx_infinitescrolling.pagination}",
     50 = TEXT
     50.value = next: "{$plugin.tx_infinitescrolling.next}",
-    60 = TEXT
-    60.value = loader: "{$plugin.tx_infinitescrolling.loader}",
-    70 = TEXT
-    70.value = triggerPageThreshold: {$plugin.tx_infinitescrolling.triggerPageThreshold},
     80 = TEXT
-    80.dataWrap = trigger: "{register:iasTriggerLinkText}",
+    80.value = delay: {$plugin.tx_infinitescrolling.delay},
     90 = TEXT
-    90.value = loaderDelay: {$plugin.tx_infinitescrolling.loaderDelay},
-    100 = TEXT
-    100.value = thresholdMargin: {$plugin.tx_infinitescrolling.thresholdMargin},
-    110 = TEXT
-    110.value = history: {$plugin.tx_infinitescrolling.history}
+    90.value = negativeMargin: {$plugin.tx_infinitescrolling.negativeMargin},
   }
   20.wrap (
     jQuery(function() {
       var ias = jQuery.ias({|});
-      ias.extension(new IASSpinnerExtension());
+      ias.extension(new IASSpinnerExtension({
+        html: '{$plugin.tx_infinitescrolling.loader}'
+      }));
       ias.extension(new IASPagingExtension());
       ias.extension(new IASHistoryExtension());
     });
