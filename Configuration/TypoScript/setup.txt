@@ -1,13 +1,18 @@
-page.includeJSlibs {
-  infiniteScrolling_jQuery = {$plugin.tx_infinitescrolling.jQuery}
-  infiniteScrolling_jQuery.external = 1
-  infiniteScrolling_jQuery.forceOnTop = 1
-  infiniteScrolling_jQuery.excludeFromConcatenation = 1
-  infiniteScrolling_jQuery.disableCompression = 1
+page.includeJSFooter {
+  jQueryForInfiniteScrolling = //ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js
+  jQueryForInfiniteScrolling.external = 1
+  jQueryForInfiniteScrolling.excludeFromConcatenation = 1
+  jQueryForInfiniteScrolling.disableCompression = 1
+  jQueryForInfiniteScrolling.if.isTrue = {$plugin.tx_infinitescrolling.includeJQueryLibrary}
+
+  infiniteScrolling_callback = typo3conf/ext/infinitescrolling/Resources/Public/JavaScript/Ias/callback.js
   infiniteScrolling_ias = typo3conf/ext/infinitescrolling/Resources/Public/JavaScript/Ias/jquery-ias.js
+  infiniteScrolling_spinner = typo3conf/ext/infinitescrolling/Resources/Public/JavaScript/Ias/Extension/Spinner.js
+  infiniteScrolling_paging = typo3conf/ext/infinitescrolling/Resources/Public/JavaScript/Ias/Extension/Paging.js
+  infiniteScrolling_history = typo3conf/ext/infinitescrolling/Resources/Public/JavaScript/Ias/Extension/History.js
 }
 
-page.jsInline {
+page.jsFooterInline {
   10 = LOAD_REGISTER
   10.iasTriggerLinkText = {$plugin.tx_infinitescrolling.trigger}
   10.iasTriggerLinkText.lang.de = {$plugin.tx_infinitescrolling.trigger}
@@ -40,7 +45,10 @@ page.jsInline {
   }
   20.wrap (
     jQuery(function() {
-      jQuery.ias({|});
+      var ias = jQuery.ias({|});
+      ias.extension(new IASSpinnerExtension());
+      ias.extension(new IASPagingExtension());
+      ias.extension(new IASHistoryExtension());
     });
   )
 

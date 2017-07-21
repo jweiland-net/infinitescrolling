@@ -1,761 +1,663 @@
 /**
- * Infinite Ajax Scroll, a jQuery plugin
- * Version 1.0.0
- * https://github.com/webcreate/infinite-ajax-scroll
+ * Infinite Ajax Scroll v2.2.3
+ * A jQuery plugin for infinite scrolling
+ * http://infiniteajaxscroll.com
  *
- * Copyright (c) 2011-2013 Jeroen Fiege
- * Licensed under MIT:
- * http://webcreate.nl/license
+ * Commercial use requires one-time purchase of a commercial license
+ * http://infiniteajaxscroll.com/docs/license.html
+ *
+ * Non-commercial use is licensed under the MIT License
+ *
+ * Copyright 2014-2017 Webcreate (Jeroen Fiege)
  */
 
-(function ($) {
-
-    'use strict';
-
-    Date.now = Date.now || function () { return +new Date(); };
-
-    $.ias = function (options)
-    {
-        // setup
-        var opts             = $.extend({}, $.ias.defaults, options);
-        var util             = new $.ias.util();                                // utilities module
-        var paging           = new $.ias.paging(opts.scrollContainer);          // paging module
-        var hist             = (opts.history ? new $.ias.history() : false);    // history module
-        var _self            = this;
-
-        /**
-         * Initialize
-         *
-         * - tracks scrolling through pages
-         * - remembers current page with the history module
-         * - setup scroll event and hides pagination element
-         * - loads and scrolls to previous page when we have something in our history
-         *
-         * @return self
-         */
-        function init()
-        {
-            var pageNum;
-
-            // track page number changes
-            paging.onChangePage(function (pageNum, scrollOffset, pageUrl) {
-                if (hist) {
-                    hist.setPage(pageNum, pageUrl);
-                }
-
-                // call onPageChange event
-                opts.onPageChange.call(this, pageNum, pageUrl, scrollOffset);
-            });
-
-            // setup scroll and hide pagination
-            reset();
-
-            // load and scroll to previous page
-            if (hist && hist.havePage()) {
-                stop_scroll();
-
-                pageNum = hist.getPage();
-
-                util.forceScrollTop(function () {
-                    var curThreshold;
-
-                    if (pageNum > 1) {
-                        paginateToPage(pageNum);
-
-                        curThreshold = get_scroll_threshold(true);
-                        $('html, body').scrollTop(curThreshold);
-                    }
-                    else {
-                        reset();
-                    }
-                });
-            }
-
-            return _self;
-        }
-
-        // initialize
-        init();
-
-        /**
-         * Reset scrolling and hide pagination links
-         *
-         * @return void
-         */
-        function reset()
-        {
-            hide_pagination();
-
-            opts.scrollContainer.scroll(scroll_handler);
-        }
-
-        /**
-         * Scroll event handler
-         *
-         * @return void
-         */
-        function scroll_handler()
-        {
-            var curScrOffset,
-                scrThreshold;
-
-            curScrOffset = util.getCurrentScrollOffset(opts.scrollContainer);
-            scrThreshold = get_scroll_threshold();
-
-            if (curScrOffset >= scrThreshold) {
-                if (get_current_page() >= opts.triggerPageThreshold) {
-                    stop_scroll();
-                    show_trigger(function () {
-                        paginate(curScrOffset);
-                    });
-                }
-                else {
-                    paginate(curScrOffset);
-                }
-            }
-        }
-
-        /**
-         * Cancel scrolling
-         *
-         * @return void
-         */
-        function stop_scroll()
-        {
-            opts.scrollContainer.unbind('scroll', scroll_handler);
-        }
-
-        /**
-         * Hide pagination
-         *
-         * @return void
-         */
-        function hide_pagination()
-        {
-            $(opts.pagination).hide();
-        }
-
-        /**
-         * Get scroll threshold based on the last item element
-         *
-         * @param boolean pure indicates if the thresholdMargin should be applied
-         * @return integer threshold
-         */
-        function get_scroll_threshold(pure)
-        {
-            var el,
-                threshold;
-
-            el = $(opts.container).find(opts.item).last();
-
-            if (el.size() === 0) {
-                return 0;
-            }
-
-            threshold = el.offset().top + el.height();
-
-            if (!pure) {
-                threshold += opts.thresholdMargin;
-            }
-
-            return threshold;
-        }
-
-        /**
-         * Load the items from the next page.
-         *
-         * @param int      curScrOffset      current scroll offset
-         * @param function onCompleteHandler callback function
-         * @return void
-         */
-        function paginate(curScrOffset, onCompleteHandler)
-        {
-            var urlNextPage;
-
-            urlNextPage = $(opts.next).attr('href');
-            if (!urlNextPage) {
-                if (opts.noneleft) {
-                    $(opts.container).find(opts.item).last().after(opts.noneleft);
-                }
-                return stop_scroll();
-            }
-
-            if (opts.beforePageChange && $.isFunction(opts.beforePageChange)) {
-                if (opts.beforePageChange(curScrOffset, urlNextPage) === false) {
-                    return;
-                }
-            }
-
-            paging.pushPages(curScrOffset, urlNextPage);
-
-            stop_scroll();
-            show_loader();
-
-            loadItems(urlNextPage, function (data, items) {
-                // call the onLoadItems callback
-                var result = opts.onLoadItems.call(this, items),
-                    curLastItem;
-
-                if (result !== false) {
-                    $(items).hide();  // at first, hide it so we can fade it in later
-
-                    // insert them after the last item with a nice fadeIn effect
-                    curLastItem = $(opts.container).find(opts.item).last();
-                    curLastItem.after(items);
-                    $(items).fadeIn();
-                }
-
-                urlNextPage = $(opts.next, data).attr('href');
-
-                // update pagination
-                $(opts.pagination).replaceWith($(opts.pagination, data));
-
-                remove_loader();
-                hide_pagination();
-
-                if (urlNextPage) {
-                    reset();
-                }
-                else {
-                    stop_scroll();
-                }
-
-                // call the onRenderComplete callback
-                opts.onRenderComplete.call(this, items);
-
-                if (onCompleteHandler) {
-                    onCompleteHandler.call(this);
-                }
-            });
-        }
-
-        /**
-         * Loads items from certain url, triggers
-         * onComplete handler when finished
-         *
-         * @param string   the url to load
-         * @param function the callback function
-         * @param int      minimal time the loading should take, defaults to $.ias.default.loaderDelay
-         * @return void
-         */
-        function loadItems(url, onCompleteHandler, delay)
-        {
-            var items = [],
-                container,
-                startTime = Date.now(),
-                diffTime,
-                self;
-
-            delay = delay || opts.loaderDelay;
-
-            $.get(url, null, function (data) {
-                // walk through the items on the next page
-                // and add them to the items array
-                container = $(opts.container, data).eq(0);
-                if (0 === container.length) {
-                    // incase the element is a root element (body > element),
-                    // try to filter it
-                    container = $(data).filter(opts.container).eq(0);
-                }
-
-                if (container) {
-                    container.find(opts.item).each(function () {
-                        items.push(this);
-                    });
-                }
-
-                if (onCompleteHandler) {
-                    self = this;
-                    diffTime = Date.now() - startTime;
-                    if (diffTime < delay) {
-                        setTimeout(function () {
-                            onCompleteHandler.call(self, data, items);
-                        }, delay - diffTime);
-                    } else {
-                        onCompleteHandler.call(self, data, items);
-                    }
-                }
-            }, 'html');
-        }
-
-        /**
-         * Paginate to a certain page number.
-         *
-         * - keeps paginating till the pageNum is reached
-         *
-         * @return void
-         */
-        function paginateToPage(pageNum)
-        {
-            var curThreshold = get_scroll_threshold(true);
-
-            if (curThreshold > 0) {
-                paginate(curThreshold, function () {
-                    stop_scroll();
-
-                    if ((paging.getCurPageNum(curThreshold) + 1) < pageNum) {
-                        paginateToPage(pageNum);
-
-                        $('html,body').animate({'scrollTop': curThreshold}, 400, 'swing');
-                    }
-                    else {
-                        $('html,body').animate({'scrollTop': curThreshold}, 1000, 'swing');
-
-                        reset();
-                    }
-                });
-            }
-        }
-
-        function get_current_page()
-        {
-            var curScrOffset = util.getCurrentScrollOffset(opts.scrollContainer);
-
-            return paging.getCurPageNum(curScrOffset);
-        }
-
-        /**
-         * Return the active loader or creates a new loader
-         *
-         * @return object loader jquery object
-         */
-        function get_loader()
-        {
-            var loader = $('.ias_loader');
-
-            if (loader.size() === 0) {
-                loader = $('<div class="ias_loader">' + opts.loader + '</div>');
-                loader.hide();
-            }
-            return loader;
-        }
-
-        /**
-         * Inserts the loader and does a fadeIn.
-         *
-         * @return void
-         */
-        function show_loader()
-        {
-            var loader = get_loader(),
-                el;
-
-            if (opts.customLoaderProc !== false) {
-                opts.customLoaderProc(loader);
-            } else {
-                el = $(opts.container).find(opts.item).last();
-                el.after(loader);
-                loader.fadeIn();
-            }
-        }
-
-        /**
-         * Removes the loader.
-         *
-         * return void
-         */
-        function remove_loader()
-        {
-            var loader = get_loader();
-            loader.remove();
-        }
-
-        /**
-         * Return the active trigger or creates a new trigger
-         *
-         * @return object trigger jquery object
-         */
-        function get_trigger(callback)
-        {
-            var trigger = $('.ias_trigger');
-
-            if (trigger.size() === 0) {
-                trigger = $('<div class="ias_trigger"><a href="#">' + opts.trigger + '</a></div>');
-                trigger.hide();
-            }
-
-            $('a', trigger)
-                .off('click')
-                .on('click', function () { remove_trigger(); callback.call(); return false; })
-            ;
-
-            return trigger;
-        }
-
-        /**
-         * @param function callback of the trigger (get's called onClick)
-         */
-        function show_trigger(callback)
-        {
-            var trigger = get_trigger(callback),
-                el;
-
-            el = $(opts.container).find(opts.item).last();
-            el.after(trigger);
-            trigger.fadeIn();
-        }
-
-        /**
-         * Removes the trigger.
-         *
-         * return void
-         */
-        function remove_trigger()
-        {
-            var trigger = get_trigger();
-
-            trigger.remove();
-        }
+(function($) {
+
+  'use strict';
+
+  var UNDETERMINED_SCROLLOFFSET = -1;
+
+  var IAS = function($element, options) {
+    this.itemsContainerSelector = options.container;
+    this.itemSelector = options.item;
+    this.nextSelector = options.next;
+    this.paginationSelector = options.pagination;
+    this.$scrollContainer = $element;
+    this.$container = (window === $element.get(0) ? $(document) : $element);
+    this.defaultDelay = options.delay;
+    this.negativeMargin = options.negativeMargin;
+    this.nextUrl = null;
+    this.isBound = false;
+    this.isPaused = false;
+    this.isInitialized = false;
+    this.jsXhr = false;
+    this.listeners = {
+      next:     new IASCallbacks($),
+      load:     new IASCallbacks($),
+      loaded:   new IASCallbacks($),
+      render:   new IASCallbacks($),
+      rendered: new IASCallbacks($),
+      scroll:   new IASCallbacks($),
+      noneLeft: new IASCallbacks($),
+      ready:    new IASCallbacks($)
+    };
+    this.extensions = [];
+
+    /**
+     * Scroll event handler
+     *
+     * Note: calls to this functions should be throttled
+     *
+     * @private
+     */
+    this.scrollHandler = function() {
+      // the throttle method can call the scrollHandler even thought we have called unbind()
+      if (!this.isBound || this.isPaused) {
+        return;
+      }
+
+      var currentScrollOffset = this.getCurrentScrollOffset(this.$scrollContainer),
+        scrollThreshold = this.getScrollThreshold()
+      ;
+
+      // invalid scrollThreshold. The DOM might not have loaded yet...
+      if (UNDETERMINED_SCROLLOFFSET == scrollThreshold) {
+        return;
+      }
+
+      this.fire('scroll', [currentScrollOffset, scrollThreshold]);
+
+      if (currentScrollOffset >= scrollThreshold) {
+        this.next();
+      }
     };
 
-    // plugin defaults
-    $.ias.defaults = {
-        container: '#container',
-        scrollContainer: $(window),
-        item: '.item',
-        pagination: '#pagination',
-        next: '.next',
-        noneleft: false,
-        loader: '<img src="images/loader.gif"/>',
-        loaderDelay: 600,
-        triggerPageThreshold: 3,
-        trigger: 'Load more items',
-        thresholdMargin: 0,
-        history : true,
-        onPageChange: function () {},
-        beforePageChange: function () {},
-        onLoadItems: function () {},
-        onRenderComplete: function () {},
-        customLoaderProc: false
+    /**
+     * Returns the items container currently in the DOM
+     *
+     * @private
+     * @returns {object}
+     */
+    this.getItemsContainer = function() {
+      return $(this.itemsContainerSelector, this.$container);
     };
 
-    // utility module
-    $.ias.util = function ()
-    {
-        // setup
-        var wndIsLoaded = false;
-        var forceScrollTopIsCompleted = false;
-        var self = this;
-
-        /**
-         * Initialize
-         *
-         * @return void
-         */
-        function init()
-        {
-            $(window).load(function () {
-                wndIsLoaded = true;
-            });
-        }
-
-        // initialize
-        init();
-
-        /**
-         * Force browsers to scroll to top.
-         *
-         * - When you hit back in you browser, it automatically scrolls
-         *   back to the last position. There is no way to stop this
-         *   in a nice way, so this function does it the hard way.
-         *
-         * @param function onComplete callback function
-         * @return void
-         */
-        this.forceScrollTop = function (onCompleteHandler)
-        {
-            $('html,body').scrollTop(0);
-
-            if (!forceScrollTopIsCompleted) {
-                if (!wndIsLoaded) {
-                    setTimeout(function () {self.forceScrollTop(onCompleteHandler); }, 1);
-                } else {
-                    onCompleteHandler.call();
-                    forceScrollTopIsCompleted = true;
-                }
-            }
-        };
-
-        this.getCurrentScrollOffset = function (container)
-        {
-            var scrTop,
-                wndHeight;
-
-            // the way we calculate if we have to load the next page depends on which container we have
-            if (container.get(0) === window) {
-                scrTop = container.scrollTop();
-            } else {
-                scrTop = container.offset().top;
-            }
-
-            wndHeight = container.height();
-
-            return scrTop + wndHeight;
-        };
+    /**
+     * Returns the last item currently in the DOM
+     *
+     * @private
+     * @returns {object}
+     */
+    this.getLastItem = function() {
+      return $(this.itemSelector, this.getItemsContainer().get(0)).last();
     };
 
-    // paging module
-    $.ias.paging = function ()
-    {
-        // setup
-        var pagebreaks        = [[0, document.location.toString()]];
-        var changePageHandler = function () {};
-        var lastPageNum       = 1;
-        var util              = new $.ias.util();
-
-        /**
-         * Initialize
-         *
-         * @return void
-         */
-        function init()
-        {
-            $(window).scroll(scroll_handler);
-        }
-
-        // initialize
-        init();
-
-        /**
-         * Scroll handler
-         *
-         * - Triggers changePage event
-         *
-         * @return void
-         */
-        function scroll_handler()
-        {
-            var curScrOffset,
-                curPageNum,
-                curPagebreak,
-                scrOffset,
-                urlPage;
-
-            curScrOffset = util.getCurrentScrollOffset($(window));
-
-            curPageNum = getCurPageNum(curScrOffset);
-            curPagebreak = getCurPagebreak(curScrOffset);
-
-            if (lastPageNum !== curPageNum) {
-                scrOffset = curPagebreak[0];
-                urlPage = curPagebreak[1];
-                changePageHandler.call({}, curPageNum, scrOffset, urlPage); // @todo fix for window height
-            }
-
-            lastPageNum = curPageNum;
-        }
-
-        /**
-         * Returns current page number based on scroll offset
-         *
-         * @param int scroll offset
-         * @return int current page number
-         */
-        function getCurPageNum(scrollOffset)
-        {
-            for (var i = (pagebreaks.length - 1); i > 0; i--) {
-                if (scrollOffset > pagebreaks[i][0]) {
-                    return i + 1;
-                }
-            }
-            return 1;
-        }
-
-        /**
-         * Public function for getCurPageNum
-         *
-         * @param int scrollOffset defaulst to the current
-         * @return int current page number
-         */
-        this.getCurPageNum = function (scrollOffset)
-        {
-            scrollOffset = scrollOffset || util.getCurrentScrollOffset($(window));
-
-            return getCurPageNum(scrollOffset);
-        };
-
-        /**
-         * Returns current pagebreak information based on scroll offset
-         *
-         * @param int scroll offset
-         * @return array pagebreak information
-         */
-        function getCurPagebreak(scrollOffset)
-        {
-            for (var i = (pagebreaks.length - 1); i >= 0; i--) {
-                if (scrollOffset > pagebreaks[i][0]) {
-                    return pagebreaks[i];
-                }
-            }
-            return null;
-        }
-
-        /**
-         * Sets onchangePage event handler
-         *
-         * @param function event handler
-         * @return void
-         */
-        this.onChangePage = function (fn)
-        {
-            changePageHandler = fn;
-        };
-
-        /**
-         * pushes the pages tracker
-         *
-         * @param int scroll offset for the new page
-         * @return void
-         */
-        this.pushPages = function (scrollOffset, urlNextPage)
-        {
-            pagebreaks.push([scrollOffset, urlNextPage]);
-        };
+    /**
+     * Returns the first item currently in the DOM
+     *
+     * @private
+     * @returns {object}
+     */
+    this.getFirstItem = function() {
+      return $(this.itemSelector, this.getItemsContainer().get(0)).first();
     };
 
-    // history module
-    $.ias.history = function ()
-    {
-        // setup
-        var isPushed = false;
-        var isHtml5 = false;
+    /**
+     * Returns scroll threshold. This threshold marks the line from where
+     * IAS should start loading the next page.
+     *
+     * @private
+     * @param negativeMargin defaults to {this.negativeMargin}
+     * @return {number}
+     */
+    this.getScrollThreshold = function(negativeMargin) {
+      var $lastElement;
 
-        /**
-         * Initialize
-         *
-         * @return void
-         */
-        function init()
-        {
-            isHtml5 = !!(window.history && history.pushState && history.replaceState);
-            isHtml5 = false; // html5 functions disabled due to problems in chrome
+      negativeMargin = negativeMargin || this.negativeMargin;
+      negativeMargin = (negativeMargin >= 0 ? negativeMargin * -1 : negativeMargin);
+
+      $lastElement = this.getLastItem();
+
+      // if the don't have a last element, the DOM might not have been loaded,
+      // or the selector is invalid
+      if (0 === $lastElement.length) {
+        return UNDETERMINED_SCROLLOFFSET;
+      }
+
+      return ($lastElement.offset().top + $lastElement.height() + negativeMargin);
+    };
+
+    /**
+     * Returns current scroll offset for the given scroll container
+     *
+     * @private
+     * @param $container
+     * @returns {number}
+     */
+    this.getCurrentScrollOffset = function($container) {
+      var scrollTop = 0,
+        containerHeight = $container.height();
+
+      if (window === $container.get(0))  {
+        scrollTop = $container.scrollTop();
+      } else {
+        scrollTop = $container.offset().top;
+      }
+
+      // compensate for iPhone
+      if (navigator.platform.indexOf("iPhone") != -1 || navigator.platform.indexOf("iPod") != -1) {
+        containerHeight += 80;
+      }
+
+      return (scrollTop + containerHeight);
+    };
+
+    /**
+     * Returns the url for the next page
+     *
+     * @private
+     */
+    this.getNextUrl = function(container) {
+      container = container || this.$container;
+
+      // always take the last matching item
+      return $(this.nextSelector, container).last().attr('href');
+    };
+
+    /**
+     * Loads a page url
+     *
+     * @param url
+     * @param callback
+     * @param delay
+     * @returns {object}        jsXhr object
+     */
+    this.load = function(url, callback, delay) {
+      var self = this,
+        $itemContainer,
+        items = [],
+        timeStart = +new Date(),
+        timeDiff;
+
+      delay = delay || this.defaultDelay;
+
+      var loadEvent = {
+        url: url
+      };
+
+      self.fire('load', [loadEvent]);
+
+      this.jsXhr = $.get(loadEvent.url, null, $.proxy(function(data) {
+        $itemContainer = $(this.itemsContainerSelector, data).eq(0);
+        if (0 === $itemContainer.length) {
+          $itemContainer = $(data).filter(this.itemsContainerSelector).eq(0);
         }
 
-        // initialize
-        init();
+        if ($itemContainer) {
+          $itemContainer.find(this.itemSelector).each(function() {
+            items.push(this);
+          });
+        }
 
-        /**
-         * Sets page to history
-         *
-         * @return void;
-         */
-        this.setPage = function (pageNum, pageUrl)
-        {
-            this.updateState({page : pageNum}, '', pageUrl);
-        };
+        self.fire('loaded', [data, items]);
 
-        /**
-         * Checks if we have a page set in the history
-         *
-         * @return bool returns true when we have a previous page, false otherwise
-         */
-        this.havePage = function ()
-        {
-            return (this.getState() !== false);
-        };
+        if (callback) {
+          timeDiff = +new Date() - timeStart;
+          if (timeDiff < delay) {
+            setTimeout(function() {
+              callback.call(self, data, items);
+            }, delay - timeDiff);
+          } else {
+            callback.call(self, data, items);
+          }
+        }
+      }, self), 'html');
 
-        /**
-         * Gets the previous page from history
-         *
-         * @return int page number of previous page
-         */
-        this.getPage = function ()
-        {
-            var stateObj;
-
-            if (this.havePage()) {
-                stateObj = this.getState();
-                return stateObj.page;
-            }
-            return 1;
-        };
-
-        /**
-         * Returns current state
-         *
-         * @return object stateObj
-         */
-        this.getState = function ()
-        {
-            var haveState,
-                stateObj,
-                pageNum;
-
-            if (isHtml5) {
-                stateObj = history.state;
-                if (stateObj && stateObj.ias) {
-                    return stateObj.ias;
-                }
-            }
-            else {
-                haveState = (window.location.hash.substring(0, 7) === '#/page/');
-                if (haveState) {
-                    pageNum = parseInt(window.location.hash.replace('#/page/', ''), 10);
-                    return { page : pageNum };
-                }
-            }
-
-            return false;
-        };
-
-        /**
-         * Pushes state when not pushed already, otherwise
-         * replaces the state.
-         *
-         * @param obj stateObj
-         * @param string title
-         * @param string url
-         * @return void
-         */
-        this.updateState = function (stateObj, title, url)
-        {
-            if (isPushed) {
-                this.replaceState(stateObj, title, url);
-            }
-            else {
-                this.pushState(stateObj, title, url);
-            }
-        };
-
-        /**
-         * Pushes state to history.
-         *
-         * @param obj stateObj
-         * @param string title
-         * @param string url
-         * @return void
-         */
-        this.pushState = function (stateObj, title, url)
-        {
-            var hash;
-
-            if (isHtml5) {
-                history.pushState({ ias : stateObj }, title, url);
-            }
-            else {
-                hash = (stateObj.page > 0 ? '#/page/' + stateObj.page : '');
-                window.location.hash = hash;
-            }
-
-            isPushed = true;
-        };
-
-        /**
-         * Replaces current history state.
-         *
-         * @param obj stateObj
-         * @param string title
-         * @param string url
-         * @return void
-         */
-        this.replaceState = function (stateObj, title, url)
-        {
-            if (isHtml5) {
-                history.replaceState({ ias : stateObj }, title, url);
-            }
-            else {
-                this.pushState(stateObj, title, url);
-            }
-        };
+      return this.jsXhr;
     };
+
+    /**
+     * Renders items
+     *
+     * @param callback
+     * @param items
+     */
+    this.render = function(items, callback) {
+      var self = this,
+        $lastItem = this.getLastItem(),
+        count = 0;
+
+      var promise = this.fire('render', [items]);
+
+      promise.done(function() {
+        $(items).hide(); // at first, hide it so we can fade it in later
+
+        $lastItem.after(items);
+
+        $(items).fadeIn(400, function() {
+          // complete callback get fired for each item,
+          // only act on the last item
+          if (++count < items.length) {
+            return;
+          }
+
+          self.fire('rendered', [items]);
+
+          if (callback) {
+            callback();
+          }
+        });
+      });
+
+      promise.fail(function() {
+        if (callback) {
+          callback();
+        }
+      });
+    };
+
+    /**
+     * Hides the pagination
+     */
+    this.hidePagination = function() {
+      if (this.paginationSelector) {
+        $(this.paginationSelector, this.$container).hide();
+      }
+    };
+
+    /**
+     * Restores the pagination
+     */
+    this.restorePagination = function() {
+      if (this.paginationSelector) {
+        $(this.paginationSelector, this.$container).show();
+      }
+    };
+
+    /**
+     * Throttles a method
+     *
+     * Adopted from Ben Alman's jQuery throttle / debounce plugin
+     *
+     * @param callback
+     * @param delay
+     * @return {object}
+     */
+    this.throttle = function(callback, delay) {
+      var lastExecutionTime = 0,
+        wrapper,
+        timerId
+      ;
+
+      wrapper = function() {
+        var that = this,
+          args = arguments,
+          diff = +new Date() - lastExecutionTime;
+
+        function execute() {
+          lastExecutionTime = +new Date();
+          callback.apply(that, args);
+        }
+
+        if (!timerId) {
+          execute();
+        } else {
+          clearTimeout(timerId);
+        }
+
+        if (diff > delay) {
+          execute();
+        } else {
+          timerId = setTimeout(execute, delay);
+        }
+      };
+
+      if ($.guid) {
+        wrapper.guid = callback.guid = callback.guid || $.guid++;
+      }
+
+      return wrapper;
+    };
+
+    /**
+     * Fires an event with the ability to cancel further processing. This
+     * can be achieved by returning false in a listener.
+     *
+     * @param event
+     * @param args
+     * @returns {*}
+     */
+    this.fire = function(event, args) {
+      return this.listeners[event].fireWith(this, args);
+    };
+
+    /**
+     * Pauses the scroll handler
+     *
+     * Note: internal use only, if you need to pause IAS use `unbind` method.
+     *
+     * @private
+     */
+    this.pause = function() {
+      this.isPaused = true;
+    };
+
+    /**
+     * Resumes the scroll handler
+     *
+     * Note: internal use only, if you need to resume IAS use `bind` method.
+     *
+     * @private
+     */
+    this.resume = function() {
+      this.isPaused = false;
+    };
+
+    return this;
+  };
+
+  /**
+   * Initialize IAS
+   *
+   * Note: Should be called when the document is ready
+   *
+   * @public
+   */
+  IAS.prototype.initialize = function() {
+    if (this.isInitialized) {
+      return false;
+    }
+
+    var supportsOnScroll = (!!('onscroll' in this.$scrollContainer.get(0))),
+      currentScrollOffset = this.getCurrentScrollOffset(this.$scrollContainer),
+      scrollThreshold = this.getScrollThreshold();
+
+    // bail out when the browser doesn't support the scroll event
+    if (!supportsOnScroll) {
+      return false;
+    }
+
+    this.hidePagination();
+    this.bind();
+
+    this.nextUrl = this.getNextUrl();
+
+    // start loading next page if content is shorter than page fold
+    if (currentScrollOffset >= scrollThreshold) {
+      this.next();
+
+      // flag as initialized when rendering is completed
+      this.one('rendered', function() {
+        this.isInitialized = true;
+
+        this.fire('ready');
+      });
+    } else {
+      this.isInitialized = true;
+
+      this.fire('ready');
+    }
+
+    return this;
+  };
+
+  /**
+   * Reinitializes IAS, for example after an ajax page update
+   *
+   * @public
+   */
+  IAS.prototype.reinitialize = function () {
+    this.isInitialized = false;
+
+    this.unbind();
+    this.initialize();
+  };
+
+  /**
+   * Binds IAS to DOM events
+   *
+   * @public
+   */
+  IAS.prototype.bind = function() {
+    if (this.isBound) {
+      return;
+    }
+
+    this.$scrollContainer.on('scroll', $.proxy(this.throttle(this.scrollHandler, 150), this));
+
+    for (var i = 0, l = this.extensions.length; i < l; i++) {
+      this.extensions[i].bind(this);
+    }
+
+    this.isBound = true;
+    this.resume();
+  };
+
+  /**
+   * Unbinds IAS to events
+   *
+   * @public
+   */
+  IAS.prototype.unbind = function() {
+    if (!this.isBound) {
+      return;
+    }
+
+    this.$scrollContainer.off('scroll', this.scrollHandler);
+
+    // notify extensions about unbinding
+    for (var i = 0, l = this.extensions.length; i < l; i++) {
+      if (typeof this.extensions[i]['unbind'] != 'undefined') {
+        this.extensions[i].unbind(this);
+      }
+    }
+
+    this.isBound = false;
+  };
+
+  /**
+   * Destroys IAS instance
+   *
+   * @public
+   */
+  IAS.prototype.destroy = function() {
+    try {
+      this.jsXhr.abort();
+    } catch (e) {}
+
+    this.unbind();
+
+    this.$scrollContainer.data('ias', null);
+  };
+
+  /**
+   * Registers an eventListener
+   *
+   * Note: chainable
+   *
+   * @public
+   * @returns IAS
+   */
+  IAS.prototype.on = function(event, callback, priority) {
+    if (typeof this.listeners[event] == 'undefined') {
+      throw new Error('There is no event called "' + event + '"');
+    }
+
+    priority = priority || 0;
+
+    this.listeners[event].add($.proxy(callback, this), priority);
+
+    return this;
+  };
+
+  /**
+   * Registers an eventListener which only gets
+   * fired once.
+   *
+   * Note: chainable
+   *
+   * @public
+   * @returns IAS
+   */
+  IAS.prototype.one = function(event, callback) {
+    var self = this;
+
+    var remover = function() {
+      self.off(event, callback);
+      self.off(event, remover);
+    };
+
+    this.on(event, callback);
+    this.on(event, remover);
+
+    return this;
+  };
+
+  /**
+   * Removes an eventListener
+   *
+   * Note: chainable
+   *
+   * @public
+   * @returns IAS
+   */
+  IAS.prototype.off = function(event, callback) {
+    if (typeof this.listeners[event] == 'undefined') {
+      throw new Error('There is no event called "' + event + '"');
+    }
+
+    this.listeners[event].remove(callback);
+
+    return this;
+  };
+
+  /**
+   * Load the next page
+   *
+   * @public
+   */
+  IAS.prototype.next = function() {
+    var url = this.nextUrl,
+      self = this;
+
+    this.pause();
+
+    if (!url) {
+      this.fire('noneLeft', [this.getLastItem()]);
+      this.listeners['noneLeft'].disable(); // disable it so it only fires once
+
+      self.resume();
+
+      return false;
+    }
+
+    var promise = this.fire('next', [url]);
+
+    promise.done(function() {
+      self.load(url, function(data, items) {
+        self.render(items, function() {
+          self.nextUrl = self.getNextUrl(data);
+
+          self.resume();
+        });
+      });
+    });
+
+    promise.fail(function() {
+      self.resume();
+    });
+
+    return true;
+  };
+
+  /**
+   * Adds an extension
+   *
+   * @public
+   */
+  IAS.prototype.extension = function(extension) {
+    if (typeof extension['bind'] == 'undefined') {
+      throw new Error('Extension doesn\'t have required method "bind"');
+    }
+
+    if (typeof extension['initialize'] != 'undefined') {
+      extension.initialize(this);
+    }
+
+    this.extensions.push(extension);
+
+    if (this.isBound) {
+      this.reinitialize();
+    }
+
+    return this;
+  };
+
+  /**
+   * Shortcut. Sets the window as scroll container.
+   *
+   * @public
+   * @param option
+   * @returns {*}
+   */
+  $.ias = function(option) {
+    var $window = $(window);
+
+    return $window.ias.apply($window, arguments);
+  };
+
+  /**
+   * jQuery plugin initialization
+   *
+   * @public
+   * @param option
+   * @returns {*} the last IAS instance will be returned
+   */
+  $.fn.ias = function(option) {
+    var args = Array.prototype.slice.call(arguments);
+    var retval = this;
+
+    this.each(function() {
+      var $this = $(this),
+        instance = $this.data('ias'),
+        options = $.extend({}, $.fn.ias.defaults, $this.data(), typeof option == 'object' && option)
+      ;
+
+      // set a new instance as data
+      if (!instance) {
+        $this.data('ias', (instance = new IAS($this, options)));
+
+        $(document).ready($.proxy(instance.initialize, instance));
+      }
+
+      // when the plugin is called with a method
+      if (typeof option === 'string') {
+        if (typeof instance[option] !== 'function') {
+          throw new Error('There is no method called "' + option + '"');
+        }
+
+        args.shift(); // remove first argument ('option')
+        instance[option].apply(instance, args);
+      }
+
+      retval = instance;
+    });
+
+    return retval;
+  };
+
+  /**
+   * Plugin defaults
+   *
+   * @public
+   * @type {object}
+   */
+  $.fn.ias.defaults = {
+    item: '.item',
+    container: '.listing',
+    next: '.next',
+    pagination: false,
+    delay: 600,
+    negativeMargin: 10
+  };
 })(jQuery);
