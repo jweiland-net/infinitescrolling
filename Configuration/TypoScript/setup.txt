@@ -13,13 +13,9 @@ page.includeJSFooter {
 }
 
 page.jsFooterInline {
-  10 = LOAD_REGISTER
-  10.iasTriggerLinkText = {$plugin.tx_infinitescrolling.trigger}
-  10.iasTriggerLinkText.lang.de = {$plugin.tx_infinitescrolling.trigger}
-
-  20 = TEXT
-  20.cObject = COA
-  20.cObject {
+  1519224720 = TEXT
+  1519224720.cObject = COA
+  1519224720.cObject {
     10 = TEXT
     10.value = container: "{$plugin.tx_infinitescrolling.container}",
     20 = TEXT
@@ -35,16 +31,16 @@ page.jsFooterInline {
     90 = TEXT
     90.value = negativeMargin: {$plugin.tx_infinitescrolling.negativeMargin},
   }
-  20.wrap (
-    jQuery(function() {
-      var ias = jQuery.ias({|});
-      ias.extension(new IASSpinnerExtension({
-        html: '{$plugin.tx_infinitescrolling.loader}'
-      }));
-      ias.extension(new IASPagingExtension());
-      ias.extension(new IASHistoryExtension());
-    });
+  1519224720.wrap (
+  jQuery(function() {
+    var ias = jQuery.ias({|});
+    ias.extension(new IASSpinnerExtension({
+      html: '{$plugin.tx_infinitescrolling.loader}'
+    }));
+    ias.extension(new IASPagingExtension());
+    ias.extension(new IASHistoryExtension({
+      prev: '{$plugin.tx_infinitescrolling.previous}'
+    }));
+  });
   )
-
-  30 = RESTORE_REGISTER
 }
