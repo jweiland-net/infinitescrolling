@@ -14,7 +14,7 @@ plugin.tx_infinitescrolling {
   # cat=InfiniteScrolling/scroll/g; type=string; label=LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:constants.previous
   previous =
   # cat=InfiniteScrolling/scroll/h; type=string; label=LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:constants.loader
-  loader = <div class="ias-spinner" style="text-align: center;"><img src="typo3conf/ext/infinitescrolling/Resources/Public/JavaScript/Ias/images/loader.gif" /></div>
+  loader = <div class="ias-spinner" style="text-align: center;"><img src="/typo3conf/ext/infinitescrolling/Resources/Public/JavaScript/Ias/images/loader.gif" /></div>
   # cat=InfiniteScrolling/scroll/i; type=int+; label=LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:constants.delay
   delay = 0
   # cat=InfiniteScrolling/scroll/j; type=int; label=LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:constants.negativeMargin
