@@ -1,22 +1,24 @@
 plugin.tx_infinitescrolling {
   # cat=InfiniteScrolling/scroll/a; type=boolean; label=LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:constants.includeJQueryLibrary
   includeJQueryLibrary = 1
-  # cat=InfiniteScrolling/scroll/b; type=string; label=LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:constants.container
-  container =
-  # cat=InfiniteScrolling/scroll/c; type=string; label=LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:constants.scrollContainer
+  # cat=InfiniteScrolling/scroll/b; type=string; label=LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:constants.scrollContainer
   scrollContainer = jQuery(window)
+  # cat=InfiniteScrolling/scroll/c; type=string; label=LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:constants.container
+  container =
   # cat=InfiniteScrolling/scroll/d; type=string; label=LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:constants.item
   item =
   # cat=InfiniteScrolling/scroll/e; type=string; label=LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:constants.pagination
-  pagination =
+  pagination = ul.f3-widget-paginator
   # cat=InfiniteScrolling/scroll/f; type=string; label=LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:constants.next
-  next =
+  next = li.next a
   # cat=InfiniteScrolling/scroll/g; type=string; label=LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:constants.previous
-  previous =
-  # cat=InfiniteScrolling/scroll/h; type=string; label=LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:constants.loader
-  loader = <div class="ias-spinner" style="text-align: center;"><img src="/typo3conf/ext/infinitescrolling/Resources/Public/JavaScript/Ias/images/loader.gif" /></div>
+  previous = li.previous a
+  # cat=InfiniteScrolling/scroll/h; type=string; label=LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:constants.loader.html
+  loader.html = <div class="ias-spinner" style="text-align: center;"><img src="{src}"/></div>
   # cat=InfiniteScrolling/scroll/i; type=int+; label=LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:constants.delay
   delay = 0
-  # cat=InfiniteScrolling/scroll/j; type=int; label=LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:constants.negativeMargin
-  negativeMargin = -200
+  # cat=InfiniteScrolling/scroll/j; type=int+; label=LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:constants.offset
+  offset = 5
+  # cat=InfiniteScrolling/scroll/k; type=int; label=LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:constants.negativeMargin
+  negativeMargin = 200
 }

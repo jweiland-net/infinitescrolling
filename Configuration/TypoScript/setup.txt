@@ -9,6 +9,7 @@ page.includeJSFooter {
   infiniteScrolling_ias = typo3conf/ext/infinitescrolling/Resources/Public/JavaScript/Ias/jquery-ias.js
   infiniteScrolling_spinner = typo3conf/ext/infinitescrolling/Resources/Public/JavaScript/Ias/Extension/Spinner.js
   infiniteScrolling_paging = typo3conf/ext/infinitescrolling/Resources/Public/JavaScript/Ias/Extension/Paging.js
+  infiniteScrolling_trigger = typo3conf/ext/infinitescrolling/Resources/Public/JavaScript/Ias/Extension/Trigger.js
   infiniteScrolling_history = typo3conf/ext/infinitescrolling/Resources/Public/JavaScript/Ias/Extension/History.js
 }
 
@@ -31,13 +32,18 @@ page.jsFooterInline {
     90 = TEXT
     90.value = negativeMargin: {$plugin.tx_infinitescrolling.negativeMargin},
   }
-  1519224720.wrap (
+  1519224720.dataWrap (
   jQuery(function() {
     var ias = jQuery.ias({|});
     ias.extension(new IASSpinnerExtension({
-      html: '{$plugin.tx_infinitescrolling.loader}'
+      html: '{$plugin.tx_infinitescrolling.loader.html}'
     }));
     ias.extension(new IASPagingExtension());
+    ias.extension(new IASTriggerExtension({
+      text: '{LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xml:loadMoreItems}',
+      textPrev: '{LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xml:loadPrevItems}',
+      offset: {$plugin.tx_infinitescrolling.offset}
+    }));
     ias.extension(new IASHistoryExtension({
       prev: '{$plugin.tx_infinitescrolling.previous}'
     }));
