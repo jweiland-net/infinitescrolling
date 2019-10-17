@@ -6,6 +6,11 @@
 Introduction
 ============
 
+Infinite scrolling is a JS library created by https://infiniteajaxscroll.com
+It can convert nearly any paginator into an infinite scrolling system.
+Please keep in mind that infinitescrolling is OpenSource (MIT licence) but should be paid for commercial-use:
+https://infiniteajaxscroll.com/download.html
+
 
 .. _what-it-does:
 

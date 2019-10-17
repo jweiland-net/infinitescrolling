@@ -124,8 +124,3 @@ Optional Configuration
 	the user has scrolled trough the half of the page. This is a nice feature to load more data ahead of time.
 	When setting the value to 0, loading will start, once the user has scrolled completely down. Only negative values
 	are allowed.
-
-[12] History
-	When this option is enabled, the extension will add anchors to the URL of the page in the form #/page/1, #/page/2, ...
-	This feature allows to set bookmarks in the browser to a specific section of the list.
-
