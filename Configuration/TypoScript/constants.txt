@@ -13,8 +13,8 @@ plugin.tx_infinitescrolling {
   next = li.next a
   # cat=InfiniteScrolling/scroll/g; type=string; label=LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:constants.previous
   previous = li.previous a
-  # cat=InfiniteScrolling/scroll/h; type=string; label=LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:constants.loader.html
-  loader.html = <div class="ias-spinner" style="text-align: center;"><img src="{src}"/></div>
+  # cat=InfiniteScrolling/scroll/h; type=wrap; label=LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:constants.loader.html
+  loader.html = <div class="ias-spinner" style="text-align: center;"><img src="|"/></div>
   # cat=InfiniteScrolling/scroll/i; type=int+; label=LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:constants.delay
   delay = 0
   # cat=InfiniteScrolling/scroll/j; type=int+; label=LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:constants.offset
