@@ -1,6 +1,10 @@
-﻿============
-Users manual
-============
+﻿.. include:: ../Includes.rst.txt
+
+
+.. _user_manual:
+
+User manual
+===========
 
 The extension "Infinite Scrolling" is replacing the page browser at the bottom with an endless scrolling feature. This
 function has become popular with applications like Twitter and Facebook. When viewing a list of entries, more data

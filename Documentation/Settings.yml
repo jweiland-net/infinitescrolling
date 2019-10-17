@@ -1,8 +1,0 @@
-# Settings.yml
----
-conf.py:
-  project: infinitescrolling
-  copyright: 2013 Stefan Frömken, Jochen Weiland
-  version: 2.0.0
-  release: 2.0.0
-...

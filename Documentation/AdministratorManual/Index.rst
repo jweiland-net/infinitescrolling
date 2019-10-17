@@ -1,4 +1,8 @@
-﻿====================
+﻿.. include:: ../Includes.rst.txt
+
+
+.. _administrator_manual:
+
 Administrator Manual
 ====================
 
@@ -9,7 +13,7 @@ Target group: **Administrators**
 Installation
 ============
 
-The extension requires TYPO3 version 6.2 or higher.
+The extension requires TYPO3 version 7.6 or higher.
 
 Install the extension via the extension manager. There are no changes to the database structure or configuration
 options in the extension manager
@@ -36,7 +40,7 @@ The following configuration example is for the tt_news extension:
 
 [1] Include jQuery file
 	The infinitescrolling function requires the jQuery library to be available. A version of jQuery is automatically
-	loaded by default (from the Google API servers). If you already have a current version of jQuery in loaded in
+	loaded by default (from the Google API servers). If you already have a current version of jQuery loaded in
 	your website, you need to clear this entry. If you want to use the jQuery extension from the Google servers
 	instead of an already loaded version in your website, you need to disable your own version. This can typically
 	done with TypoScript.
