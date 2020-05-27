@@ -6,6 +6,12 @@
 ChangeLog
 =========
 
+**Version 3.1.0**
+
+- Remove TYPO3 7.6 and 8.7 compatibility
+- Add TYPO3 10.4 compatibility
+- Add better Ext Icon
+
 **Version 3.0.0**
 
 - Update infinitescrolling JS library to 2.3.1
