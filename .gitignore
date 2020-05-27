@@ -1,18 +1,25 @@
-# git ignore file
+################################
+# jweiland.net infinitescrolling
+# global ignore file
+################################
 
+# ignore generated documentation
+*GENERATED*
+
+# ignore typical clutter of IDEs and editors (this could be added in .git/info/exclude,
+#  but we add it here for convenience)
 *~
 *.bak
 *.idea
 *.project
 *.swp
-*.pyc
-.buildpath
-.cache
 .project
-.session
-.settings
-.TemporaryItems
 .webprj
 nbproject
 
-*NOT_VERSIONED*
+# Ignore temporary files
+*.DS_Store
+
+# Ignore composer stuff
+bin/*
+vendor/*
