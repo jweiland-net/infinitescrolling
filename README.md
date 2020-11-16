@@ -1,3 +1,4 @@
+
 # TYPO3 Extension `infinitescrolling`
 
 ## What does it do?
@@ -22,3 +23,14 @@ composer require jweiland/infinitescrolling
 Login into TYPO3 Backend of your project and click on `Extensions` in the left menu.
 Press the `Retrieve/Update` button and search for the extension key `infinitescrolling`.
 Import the extension from TER (TYPO3 Extension Repository)
+
+## Licensing
+
+This extension is based on [Infinite Ajax Scroll](https://infiniteajaxscroll.com) which is dual licensed:
+
+1. Under the Free Software Foundation’s [GNU AGPL v.3.0](https://github.com/webcreate/infinite-ajax-scroll/blob/master/LICENSE); or
+2. Under an [Infinite Ajax Scroll Commercial License](https://infiniteajaxscroll.com/licenses/)
+
+Buying a commercial license is mandatory as soon as you develop commercial activities distributing the Infinite Ajax Scroll software inside your product or deploying it on a network without disclosing the source code of your own applications under the AGPL license.
+
+See https://infiniteajaxscroll.com/licenses/ for more details.
