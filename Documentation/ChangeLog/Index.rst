@@ -6,6 +6,10 @@
 ChangeLog
 =========
 
+**Version 3.1.1**
+
+- Remove title from SVG icons
+
 **Version 3.1.0**
 
 - Remove TYPO3 7.6 and 8.7 compatibility
