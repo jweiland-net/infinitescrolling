@@ -23,5 +23,10 @@
 	"require-dev": {
 		"roave/security-advisories": "dev-latest",
 		"phpunit/phpunit": "~4.8.0"
+	},
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "infinitescrolling"
+		}
 	}
 }
