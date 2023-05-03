@@ -24,11 +24,10 @@
 	  "source": "https://github.com/jweiland-net/infinitescrolling"
 	},
 	"require": {
-		"typo3/cms-core": "^9.5.18 || ^10.4.3 || ^11.3"
+		"typo3/cms-core": "^9.5.29 || ^10.4.36 || ^11.5.23 || ^12.4.0"
 	},
 	"require-dev": {
-		"roave/security-advisories": "dev-latest",
-		"phpunit/phpunit": "~4.8.0"
+		"roave/security-advisories": "dev-latest"
 	},
 	"extra": {
 		"typo3/cms": {
