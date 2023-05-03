@@ -6,6 +6,14 @@
 ChangeLog
 =========
 
+Version 3.3.0
+=============
+
+*   FEATURE: Add TYPO3 12 compatibility
+*   BUGFIX: Use EXT: for JavaScript file references
+*   DOCS: Update configuration section
+*   DOCS: Update installation section
+
 Version 3.2.0
 =============
 

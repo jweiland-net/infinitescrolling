@@ -41,7 +41,7 @@ If there are more than a predefined number of records to show, a
 page browser [2] is used to switch between pages of the list view (see
 image below):
 
-..  figure:: Images/infinite-scroll-tt-news-list.png
+..  figure:: ../Images/infinite-scroll-tt-news-list.png
     :width: 400px
     :alt: Standard list view of news with page browser at bottom
 

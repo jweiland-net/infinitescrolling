@@ -45,6 +45,7 @@ paginator into an infinite scrolling system.
 
     Introduction/Index
     Installation/Index
+    Configuration/Index
     AdministratorManual/Index
     ChangeLog/Index
 
