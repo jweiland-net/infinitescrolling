@@ -5,12 +5,12 @@ page.includeJSFooter {
   jQueryForInfiniteScrolling.disableCompression = 1
   jQueryForInfiniteScrolling.if.isTrue = {$plugin.tx_infinitescrolling.includeJQueryLibrary}
 
-  infiniteScrolling_callback = typo3conf/ext/infinitescrolling/Resources/Public/JavaScript/Ias/callback.js
-  infiniteScrolling_ias = typo3conf/ext/infinitescrolling/Resources/Public/JavaScript/Ias/jquery-ias.js
-  infiniteScrolling_spinner = typo3conf/ext/infinitescrolling/Resources/Public/JavaScript/Ias/Extension/Spinner.js
-  infiniteScrolling_paging = typo3conf/ext/infinitescrolling/Resources/Public/JavaScript/Ias/Extension/Paging.js
-  infiniteScrolling_trigger = typo3conf/ext/infinitescrolling/Resources/Public/JavaScript/Ias/Extension/Trigger.js
-  infiniteScrolling_history = typo3conf/ext/infinitescrolling/Resources/Public/JavaScript/Ias/Extension/History.js
+  infiniteScrolling_callback = EXT:infinitescrolling/Resources/Public/JavaScript/Ias/callback.js
+  infiniteScrolling_ias = EXT:infinitescrolling/Resources/Public/JavaScript/Ias/jquery-ias.js
+  infiniteScrolling_spinner = EXT:infinitescrolling/Resources/Public/JavaScript/Ias/Extension/Spinner.js
+  infiniteScrolling_paging = EXT:infinitescrolling/Resources/Public/JavaScript/Ias/Extension/Paging.js
+  infiniteScrolling_trigger = EXT:infinitescrolling/Resources/Public/JavaScript/Ias/Extension/Trigger.js
+  infiniteScrolling_history = EXT:infinitescrolling/Resources/Public/JavaScript/Ias/Extension/History.js
 }
 
 page.jsFooterInline {

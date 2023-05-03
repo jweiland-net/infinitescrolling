@@ -3,8 +3,14 @@
 	"type": "typo3-cms-extension",
 	"description": "With this extension you can read nearly every paginator and realize infinite scrolling",
 	"license": "GPL-2.0-or-later",
-	"keywords": ["typo3", "TYPO3 CMS", "infinite scrolling", "scrolling", "infinitescrolling"],
-	"homepage": "http://www.jweiland.net",
+	"keywords": [
+		"typo3",
+		"TYPO3 CMS",
+		"infinite scrolling",
+		"scrolling",
+		"infinitescrolling"
+	],
+	"homepage": "https://jweiland.net",
 	"authors": [
 		{
 			"name": "Stefan Froemken",
@@ -18,11 +24,10 @@
 	  "source": "https://github.com/jweiland-net/infinitescrolling"
 	},
 	"require": {
-		"typo3/cms-core": "^9.5.18 || ^10.4.3 || ^11.3"
+		"typo3/cms-core": "^9.5.29 || ^10.4.36 || ^11.5.23 || ^12.4.0"
 	},
 	"require-dev": {
-		"roave/security-advisories": "dev-latest",
-		"phpunit/phpunit": "~4.8.0"
+		"roave/security-advisories": "dev-latest"
 	},
 	"extra": {
 		"typo3/cms": {
