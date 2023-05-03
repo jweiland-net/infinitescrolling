@@ -1,60 +1,57 @@
-﻿.. include:: Includes.txt
+﻿..  include:: /Includes.rst.txt
 
 
-.. Every manual should have a start label for cross-referencing to
-.. start page. Do not remove this!
+..  _start:
 
-.. _start:
+=========
+Jobcenter
+=========
 
-=============================================================
-Extension Name
-=============================================================
+:Extension key:
+    infinitescrolling
 
-.. only:: html
+:Package name:
+    jweiland/infinitescrolling
 
-   :Classification:
-      infinitescrolling
+:Version:
+    |release|
 
-   :Version:
-      |release|
+:Language:
+    en
 
-   :Language:
-      en
+:Author:
+    Stefan Froemken
 
-   :Description:
-      Manual covering TYPO3 extension infinitescrolling
+:License:
+    This document is published under the
+    `Creative Commons BY 4.0 <https://creativecommons.org/licenses/by/4.0/>`__
+    license.
 
-   :Keywords:
-      typo3, TYPO3 CMS, infinite, scrolling
+:Rendered:
+    |today|
 
-   :Copyright:
-      2013-2019
+----
 
-   :Author:
-      Stefan Froemken
+Documentation about our extension infinitescrolling. It can change nearly any
+paginator into an infinite scrolling system.
 
-   :Email:
-      projects@jweiland.net
+----
 
-   :License:
-      This document is published under the Open Publication License
-      available from http://www.opencontent.org/openpub/
+**Table of Contents:**
 
-   :Rendered:
-      |today|
+..  toctree::
+    :maxdepth: 2
+    :titlesonly:
 
-   The content of this document is related to TYPO3,
-   a GNU/GPL CMS/Framework available from `www.typo3.org <https://typo3.org/>`__.
+    Introduction/Index
+    Installation/Index
+    AdministratorManual/Index
+    ChangeLog/Index
 
+..  Meta Menu
 
-   **Table of Contents**
+..  toctree::
+    :hidden:
 
-.. toctree::
-   :maxdepth: 2
-
-   Introduction/Index
-   Installation/Index
-   UserManual/Index
-   AdministratorManual/Index
-   Contribute/Index
-   ChangeLog/Index
+    Sitemap
+    genindex

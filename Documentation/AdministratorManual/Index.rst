@@ -1,8 +1,9 @@
-﻿.. include:: ../Includes.rst.txt
+﻿..  include:: /Includes.rst.txt
 
 
-.. _administrator_manual:
+..  _administrator_manual:
 
+====================
 Administrator Manual
 ====================
 
@@ -22,19 +23,19 @@ The configuration of the extension is done with TypoScript constants. You need t
 template on the page(s) that contain a list view of the plug-ins. In the extension template, make sure to add the
 supplied Infinite Scrolling module:
 
-.. figure:: Images/infinite-scroll-ts-config.png
-		:width: 800px
-		:alt: Adding the TypoScript module
+..  figure:: Images/infinite-scroll-ts-config.png
+    :width: 800px
+    :alt: Adding the TypoScript module
 
-		Adding the TypoScript module to the template
+    Adding the TypoScript module to the template
 
 Switch to the constant editor to configure the extension and select the INFINITESCROLLING category:
 
-.. figure:: Images/infinite-scroll-ts-constants1.png
-	:width: 400px
-	:alt: Configuration of TypoScript constants
+..  figure:: Images/infinite-scroll-ts-constants1.png
+    :width: 400px
+    :alt: Configuration of TypoScript constants
 
-	Configuration of TypoScript constants (1)
+    Configuration of TypoScript constants (1)
 
 The following configuration example is for the tt_news extension:
 
@@ -66,35 +67,35 @@ The following configuration example is for the tt_news extension:
 	The extensions implements loading of the next data records by "clicking" on the "Next" link in the page
 	browser. See the following HTML code sample for the page browser:
 
-.. code-block:: html
-   :emphasize-lines: 10,10
+..  code-block:: html
+    :emphasize-lines: 10,10
 
-	<div class="news-list-browse">
-		<div class="browseLinksWrap">
-			<span class="disabledLinkWrap">&lt;&lt; First</span>
-			<span class="disabledLinkWrap">&lt; Previous</span>
-			<span class="activeLinkWrap">Page 1</span>
-			<a href="aktuelles/uebersicht/1.html" target="_top">Page 2</a>
-			<a href="aktuelles/uebersicht/2.html" target="_top">Page 3</a>
-			<a href="aktuelles/uebersicht/3.html" target="_top">Page 4</a>
-			<a href="aktuelles/uebersicht/4.html" target="_top">Page 5</a>
-			<a href="aktuelles/uebersicht/1.html" target="_top">Next &gt;</a>
-			<a href="aktuelles/uebersicht/31.html" target="_top">Last &gt;&gt;</a>
-		</div>
-	</div>
+    <div class="news-list-browse">
+        <div class="browseLinksWrap">
+            <span class="disabledLinkWrap">&lt;&lt; First</span>
+            <span class="disabledLinkWrap">&lt; Previous</span>
+            <span class="activeLinkWrap">Page 1</span>
+            <a href="aktuelles/uebersicht/1.html" target="_top">Page 2</a>
+            <a href="aktuelles/uebersicht/2.html" target="_top">Page 3</a>
+            <a href="aktuelles/uebersicht/3.html" target="_top">Page 4</a>
+            <a href="aktuelles/uebersicht/4.html" target="_top">Page 5</a>
+            <a href="aktuelles/uebersicht/1.html" target="_top">Next &gt;</a>
+            <a href="aktuelles/uebersicht/31.html" target="_top">Last &gt;&gt;</a>
+        </div>
+    </div>
 
-	We need to specify, which of the links is used to fetch the data for the. Inside the <div> container with
-	class browseLinksWrap it is the second last link (see highlighted line in above code sample).
-	Therefore we need to specify: *div.browseLinksWrap a:eq(-2)*
+    We need to specify, which of the links is used to fetch the data for the. Inside the <div> container with
+    class browseLinksWrap it is the second last link (see highlighted line in above code sample).
+    Therefore we need to specify: *div.browseLinksWrap a:eq(-2)*
 
 Optional Configuration
 ^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: Images/infinite-scroll-ts-constants2.png
-		:width: 800px
-		:alt: Configuration of TypoScript constants (2)
+..  figure:: Images/infinite-scroll-ts-constants2.png
+    :width: 800px
+    :alt: Configuration of TypoScript constants (2)
 
-		Configuration of TypoScript constants (2)
+    Configuration of TypoScript constants (2)
 
 [7] Loader Icon
 	This is the path to the animated GIF image for the spinner, which is visible while the next data records are
