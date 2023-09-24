@@ -29,6 +29,9 @@
 	"require-dev": {
 		"roave/security-advisories": "dev-latest"
 	},
+	"replace": {
+		"typo3-ter/infinitescrolling": "self.version"
+	},
 	"extra": {
 		"typo3/cms": {
 			"extension-key": "infinitescrolling"
