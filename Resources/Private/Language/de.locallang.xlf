@@ -1,61 +1,47 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <xliff version="1.0">
-	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2013-02-07T11:13:04Z" product-name="infinitescrolling">
-		<header/>
-		<body>
-			<trans-unit id="constants.includeJQueryLibrary" xml:space="preserve" approved="yes">
+  <file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2013-02-07T11:13:04Z" product-name="infinitescrolling">
+    <header/>
+    <body>
+      <trans-unit id="constants.includeJQueryLibrary" xml:space="preserve" approved="yes">
 				<source>Include jQuery: Enable this option to include jquery</source>
-				<target>jQuery einbinden: Aktivieren, um jQuery einzubinden</target>
-			</trans-unit>
-			<trans-unit id="constants.scrollContainer" xml:space="preserve" approved="yes">
+			<target state="final">jQuery einbinden: Aktivieren, um jQuery einzubinden</target></trans-unit>
+      <trans-unit id="constants.scrollContainer" xml:space="preserve" approved="yes">
 				<source>jQuery selector for Scroll Container: In which container the scrollbar is placed? Sample: jQuery(window)</source>
-				<target>jQuery Bezeichner für den Container mit Scrollbar: Trage hier den jQuery Bezeichner für den Container ein, der die Scrollleiste beinhaltet. Zum Beispiel: jQuery(window)</target>
-			</trans-unit>
-			<trans-unit id="constants.container" xml:space="preserve" approved="yes">
+			<target state="final">jQuery Bezeichner für den Container mit Scrollbar: Trage hier den jQuery Bezeichner für den Container ein, der die Scrollleiste beinhaltet. Zum Beispiel: jQuery(window)</target></trans-unit>
+      <trans-unit id="constants.container" xml:space="preserve" approved="yes">
 				<source>jQuery selector for item container: Enter the selector which selects the container which contains all f.e. news or event items you want to paginate. Sample: div.news-list-container</source>
-				<target>jQuery Bezeichner für den Container aller Einträge: Trage hier den jQuery Bezeichner für den Container ein, der alle Einträge für z.B. Neuigkeiten oder Veranstaltungen enthält. Zum Beispiel: div.news-list-container</target>
-			</trans-unit>
-			<trans-unit id="constants.item" xml:space="preserve" approved="yes">
+			<target state="final">jQuery Bezeichner für den Container aller Einträge: Trage hier den jQuery Bezeichner für den Container ein, der alle Einträge für z.B. Neuigkeiten oder Veranstaltungen enthält. Zum Beispiel: div.news-list-container</target></trans-unit>
+      <trans-unit id="constants.item" xml:space="preserve" approved="yes">
 				<source>jQuery selector for one single item: Enter the selector which contains exactly one single item within the list container. Sample: div.news-list-item</source>
-				<target>jQuery Bezeichner für einen einzigen Eintrag: Trage hier den jQuery Bezeichner für einen einzelnen Eintrag innerhalb des Listencontainer ein: Zum Beispiel: div.news-list-item</target>
-			</trans-unit>
-			<trans-unit id="constants.pagination" xml:space="preserve" approved="yes">
+			<target state="final">jQuery Bezeichner für einen einzigen Eintrag: Trage hier den jQuery Bezeichner für einen einzelnen Eintrag innerhalb des Listencontainer ein: Zum Beispiel: div.news-list-item</target></trans-unit>
+      <trans-unit id="constants.pagination" xml:space="preserve" approved="yes">
 				<source>jQuery selector for Paginator: Enter the selector for the paginator. This selector will hide paginator in Frontend. Sample: div.news-list-browse</source>
-				<target>jQuery Bezeichner für den Navigator: Trage hier den jQuery Bezeichner für die Seitennavigation (Vorherige, Seite1, Seite2, Nächste) ein. Zum Beispiel: div.news-list-browse</target>
-			</trans-unit>
-			<trans-unit id="constants.next" xml:space="preserve" approved="yes">
+			<target state="final">jQuery Bezeichner für den Navigator: Trage hier den jQuery Bezeichner für die Seitennavigation (Vorherige, Seite1, Seite2, Nächste) ein. Zum Beispiel: div.news-list-browse</target></trans-unit>
+      <trans-unit id="constants.next" xml:space="preserve" approved="yes">
 				<source>jQuery selector for next link: Enter the selector for the next link within the paginator. InfiniteScrolling will read the href attribute to read the container of next page and append it to current container. Sample: div.browseLinksWrap a:eq(-2)</source>
-				<target>jQuery Bezeichner für den Link zur nächsten Seite: Trage hier den jQuery Bezeichner für den nächste Seite ein. InfiniteScrolling liest dann den enthaltenen href aus und läd im Hintergrund von dieser Seite den oben angegebenen Container aus und fügt diesen dann dem Container der aktuellen Seite an. Zum Beispiel: li.next a</target>
-			</trans-unit>
-			<trans-unit id="constants.previous" xml:space="preserve" approved="yes">
+			<target state="final">jQuery Bezeichner für den Link zur nächsten Seite: Trage hier den jQuery Bezeichner für den nächste Seite ein. InfiniteScrolling liest dann den enthaltenen href aus und läd im Hintergrund von dieser Seite den oben angegebenen Container aus und fügt diesen dann dem Container der aktuellen Seite an. Zum Beispiel: li.next a</target></trans-unit>
+      <trans-unit id="constants.previous" xml:space="preserve" approved="yes">
 				<source>jQuery selector for previous link: Enter the selector for the previous link of the paginator. The href attribute of this element will be used to get the items from the previous page. Make sure there is only one element that matches the selector.</source>
-				<target>jQuery Bezeichner für den Link zur vorherigen Seite: Trage hier den jQuery Bezeichner für die vorherige Seite ein. InfiniteScrolling liest dann den enthaltenen href aus und läd im Hintergrund von dieser Seite den oben angegebenen Container aus und fügt diesen dann dem Container der aktuellen Seite voran. Zum Beispiel: li.previous a</target>
-			</trans-unit>
-			<trans-unit id="constants.loader.html" xml:space="preserve" approved="yes">
+			<target state="final">jQuery Bezeichner für den Link zur vorherigen Seite: Trage hier den jQuery Bezeichner für die vorherige Seite ein. InfiniteScrolling liest dann den enthaltenen href aus und läd im Hintergrund von dieser Seite den oben angegebenen Container aus und fügt diesen dann dem Container der aktuellen Seite voran. Zum Beispiel: li.previous a</target></trans-unit>
+      <trans-unit id="constants.loader.html" xml:space="preserve" approved="yes">
 				<source>Change HTML of loader icon: Enter your own HTML, if you want another rendering of the loader icon. Use {src} to implement the original loader icon from infinitescrolling JS.</source>
-				<target>HTML für das Icon des Ladestatus ändern: Trage Dein eigenes HTML für das Aussehen des Ladestatus ein. Verwende {src}, um das mitgelieferte Ladeicon zu verwenden.</target>
-			</trans-unit>
-			<trans-unit id="constants.delay" xml:space="preserve" approved="yes">
+			<target state="final">HTML für das Icon des Ladestatus ändern: Trage Dein eigenes HTML für das Aussehen des Ladestatus ein. Verwende {src}, um das mitgelieferte Ladeicon zu verwenden.</target></trans-unit>
+      <trans-unit id="constants.delay" xml:space="preserve" approved="yes">
 				<source>Define a delay until further items will be loaded: If you want the user to see the loader icon working you should set this value to something higher than 0. Value in milliseconds.</source>
-				<target>Verzögerung in Millisekunden bevor weitere Einträge nachgeladen werden: Nur wenn eine Verzögerung gesetzt ist, kann der Benutzer das Ladeicon sehen.</target>
-			</trans-unit>
-			<trans-unit id="constants.offset" xml:space="preserve" approved="yes">
+			<target state="final">Verzögerung in Millisekunden bevor weitere Einträge nachgeladen werden: Nur wenn eine Verzögerung gesetzt ist, kann der Benutzer das Ladeicon sehen.</target></trans-unit>
+      <trans-unit id="constants.offset" xml:space="preserve" approved="yes">
 				<source>Amount of loads: How often more items should be loaded, before we show a link to manually load further items? Don't set it too high as footer may not be reachable then.</source>
-				<target>Anzahl der Nachladevorgänge: Wie oft sollen Einträge nachgeladen werden bevor ein Link erscheint, um manuell weitere Einträge nachzuladen? Setze den Wert nicht zu hoch, da der Footer Deiner Seite nicht mehr erreicht werden kann.</target>
-			</trans-unit>
-			<trans-unit id="constants.negativeMargin" xml:space="preserve" approved="yes">
+			<target state="final">Anzahl der Nachladevorgänge: Wie oft sollen Einträge nachgeladen werden bevor ein Link erscheint, um manuell weitere Einträge nachzuladen? Setze den Wert nicht zu hoch, da der Footer Deiner Seite nicht mehr erreicht werden kann.</target></trans-unit>
+      <trans-unit id="constants.negativeMargin" xml:space="preserve" approved="yes">
 				<source>Start next request when margin (ps) has been reached: Define a margin from the lowest border of the last item. If scrollbar reaches this margin the new request will be started. As higher the value as earlier the page will start loading further items.</source>
-				<target>Starte nächsten Request bei Erreichen des Abstandes (px): Gebe hier einen Abstand (margin) in Pixel von dem untersten Rand des letzten Eintrages an, um ein Nachladen zu initiieren, wenn der Scrollbalken diesen Wert erreicht hat. Je höher der Wert, desto früher werden weitere Einträge nachgeladen.</target>
-			</trans-unit>
-
-			<trans-unit id="loadMoreItems" xml:space="preserve" approved="yes">
+			<target state="final">Starte nächsten Request bei Erreichen des Abstandes (px): Gebe hier einen Abstand (margin) in Pixel von dem untersten Rand des letzten Eintrages an, um ein Nachladen zu initiieren, wenn der Scrollbalken diesen Wert erreicht hat. Je höher der Wert, desto früher werden weitere Einträge nachgeladen.</target></trans-unit>
+      <trans-unit id="loadMoreItems" xml:space="preserve" approved="yes">
 				<source>Load more items</source>
-				<target>Weitere Einträge laden</target>
-			</trans-unit>
-			<trans-unit id="loadPrevItems" xml:space="preserve" approved="yes">
+			<target state="final">Weitere Einträge laden</target></trans-unit>
+      <trans-unit id="loadPrevItems" xml:space="preserve" approved="yes">
 				<source>Load previous items</source>
-				<target>Vorherige Einträge laden</target>
-			</trans-unit>
-		</body>
-	</file>
+			<target state="final">Vorherige Einträge laden</target></trans-unit>
+    </body>
+  </file>
 </xliff>
