@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+  <file source-language="en" target-language="ja" datatype="plaintext" original="messages" date="2013-02-07T11:13:04Z" product-name="infinitescrolling">
+    <header/>
+    <body>
+      <trans-unit id="constants.includeJQueryLibrary" xml:space="preserve">
+				<source>Include jQuery: Enable this option to include jquery</source>
+			<target state="needs-translation">Include jQuery: Enable this option to include jquery</target></trans-unit>
+      <trans-unit id="constants.scrollContainer" xml:space="preserve">
+				<source>jQuery selector for Scroll Container: In which container the scrollbar is placed? Sample: jQuery(window)</source>
+			<target state="needs-translation">jQuery selector for Scroll Container: In which container the scrollbar is placed? Sample: jQuery(window)</target></trans-unit>
+      <trans-unit id="constants.container" xml:space="preserve">
+				<source>jQuery selector for item container: Enter the selector which selects the container which contains all f.e. news or event items you want to paginate. Sample: div.news-list-container</source>
+			<target state="needs-translation">jQuery selector for item container: Enter the selector which selects the container which contains all f.e. news or event items you want to paginate. Sample: div.news-list-container</target></trans-unit>
+      <trans-unit id="constants.item" xml:space="preserve">
+				<source>jQuery selector for one single item: Enter the selector which contains exactly one single item within the list container. Sample: div.news-list-item</source>
+			<target state="needs-translation">jQuery selector for one single item: Enter the selector which contains exactly one single item within the list container. Sample: div.news-list-item</target></trans-unit>
+      <trans-unit id="constants.pagination" xml:space="preserve">
+				<source>jQuery selector for Paginator: Enter the selector for the paginator. This selector will hide paginator in Frontend. Sample: div.news-list-browse</source>
+			<target state="needs-translation">jQuery selector for Paginator: Enter the selector for the paginator. This selector will hide paginator in Frontend. Sample: div.news-list-browse</target></trans-unit>
+      <trans-unit id="constants.next" xml:space="preserve">
+				<source>jQuery selector for next link: Enter the selector for the next link within the paginator. InfiniteScrolling will read the href attribute to read the container of next page and append it to current container. Sample: div.browseLinksWrap a:eq(-2)</source>
+			<target state="needs-translation">jQuery selector for next link: Enter the selector for the next link within the paginator. InfiniteScrolling will read the href attribute to read the container of next page and append it to current container. Sample: div.browseLinksWrap a:eq(-2)</target></trans-unit>
+      <trans-unit id="constants.previous" xml:space="preserve">
+				<source>jQuery selector for previous link: Enter the selector for the previous link of the paginator. The href attribute of this element will be used to get the items from the previous page. Make sure there is only one element that matches the selector.</source>
+			<target state="needs-translation">jQuery selector for previous link: Enter the selector for the previous link of the paginator. The href attribute of this element will be used to get the items from the previous page. Make sure there is only one element that matches the selector.</target></trans-unit>
+      <trans-unit id="constants.loader.html" xml:space="preserve">
+				<source>Change HTML of loader icon: Enter your own HTML, if you want another rendering of the loader icon. Use {src} to implement the original loader icon from infinitescrolling JS.</source>
+			<target state="needs-translation">Change HTML of loader icon: Enter your own HTML, if you want another rendering of the loader icon. Use {src} to implement the original loader icon from infinitescrolling JS.</target></trans-unit>
+      <trans-unit id="constants.delay" xml:space="preserve">
+				<source>Define a delay until further items will be loaded: If you want the user to see the loader icon working you should set this value to something higher than 0. Value in milliseconds.</source>
+			<target state="needs-translation">Define a delay until further items will be loaded: If you want the user to see the loader icon working you should set this value to something higher than 0. Value in milliseconds.</target></trans-unit>
+      <trans-unit id="constants.offset" xml:space="preserve">
+				<source>Amount of loads: How often more items should be loaded, before we show a link to manually load further items? Don't set it too high as footer may not be reachable then.</source>
+			<target state="needs-translation">Amount of loads: How often more items should be loaded, before we show a link to manually load further items? Don't set it too high as footer may not be reachable then.</target></trans-unit>
+      <trans-unit id="constants.negativeMargin" xml:space="preserve">
+				<source>Start next request when margin (ps) has been reached: Define a margin from the lowest border of the last item. If scrollbar reaches this margin the new request will be started. As higher the value as earlier the page will start loading further items.</source>
+			<target state="needs-translation">Start next request when margin (ps) has been reached: Define a margin from the lowest border of the last item. If scrollbar reaches this margin the new request will be started. As higher the value as earlier the page will start loading further items.</target></trans-unit>
+      <trans-unit id="loadMoreItems" xml:space="preserve">
+				<source>Load more items</source>
+			<target state="needs-translation">Load more items</target></trans-unit>
+      <trans-unit id="loadPrevItems" xml:space="preserve">
+				<source>Load previous items</source>
+			<target state="needs-translation">Load previous items</target></trans-unit>
+    </body>
+  </file>
+</xliff>
