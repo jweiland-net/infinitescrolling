@@ -1,9 +1,8 @@
 page.includeJSFooter {
-  jQueryForInfiniteScrolling = //ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js
-  jQueryForInfiniteScrolling.external = 1
+  jQueryForInfiniteScrolling = EXT:infinitescrolling/Resources/Public/JavaScript/jquery-3.7.1.min.js
   jQueryForInfiniteScrolling.excludeFromConcatenation = 1
   jQueryForInfiniteScrolling.disableCompression = 1
-  jQueryForInfiniteScrolling.if.isTrue = {$plugin.tx_infinitescrolling.includeJQueryLibrary}
+  jQueryForInfiniteScrolling.if.isTrue = {$infinitescrolling.includeJQueryLibrary}
 
   infiniteScrolling_callback = EXT:infinitescrolling/Resources/Public/JavaScript/Ias/callback.js
   infiniteScrolling_ias = EXT:infinitescrolling/Resources/Public/JavaScript/Ias/jquery-ias.js
@@ -19,32 +18,32 @@ page.jsFooterInline {
     10 = COA
     10 {
       10 = TEXT
-      10.value = container: "{$plugin.tx_infinitescrolling.container}",
+      10.value = container: "{$infinitescrolling.container}",
       20 = TEXT
-      20.value = scrollContainer: {$plugin.tx_infinitescrolling.scrollContainer},
+      20.value = scrollContainer: {$infinitescrolling.scrollContainer},
       30 = TEXT
-      30.value = item: "{$plugin.tx_infinitescrolling.item}",
+      30.value = item: "{$infinitescrolling.item}",
       40 = TEXT
-      40.value = pagination: "{$plugin.tx_infinitescrolling.pagination}",
+      40.value = pagination: "{$infinitescrolling.pagination}",
       50 = TEXT
-      50.value = next: "{$plugin.tx_infinitescrolling.next}",
+      50.value = next: "{$infinitescrolling.next}",
       80 = TEXT
-      80.value = delay: {$plugin.tx_infinitescrolling.delay},
+      80.value = delay: {$infinitescrolling.delay},
       90 = TEXT
-      90.value = negativeMargin: {$plugin.tx_infinitescrolling.negativeMargin}
+      90.value = negativeMargin: {$infinitescrolling.negativeMargin}
       wrap = var ias = jQuery.ias({|});
     }
     20 = TEXT
     20.value = {src}
-    20.wrap = html: '{$plugin.tx_infinitescrolling.loader.html}'
+    20.wrap = html: '{$infinitescrolling.loader.html}'
     20.wrap3 = ias.extension(new IASSpinnerExtension({|}));
     30 = TEXT
     30.value = ias.extension(new IASPagingExtension());
     40 = TEXT
-    40.dataWrap = text: '{LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xml:loadMoreItems}', textPrev: '{LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xml:loadPrevItems}', offset: {$plugin.tx_infinitescrolling.offset}
+    40.dataWrap = text: '{LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xml:loadMoreItems}', textPrev: '{LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xml:loadPrevItems}', offset: {$infinitescrolling.offset}
     40.wrap3 = ias.extension(new IASTriggerExtension({|}));
     50 = TEXT
-    50.value = prev: '{$plugin.tx_infinitescrolling.previous}'
+    50.value = prev: '{$infinitescrolling.previous}'
     50.wrap = ias.extension(new IASHistoryExtension({|}));
     wrap = jQuery(function() {|});
   }

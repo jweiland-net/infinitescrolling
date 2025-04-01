@@ -1,0 +1,71 @@
+categories:
+  InfiniteScrolling:
+    label: 'Infinite Scrolling'
+
+settings:
+  infinitescrolling.includeJQueryLibrary:
+    label: 'Include jQuery'
+    category: 'InfiniteScrolling'
+    description: 'Enable this option to load the jQuery library if it is not already included.'
+    type: bool
+    default: false
+  infinitescrolling.scrollContainer:
+    label: 'Scroll container selector'
+    category: 'InfiniteScrolling'
+    description: 'Specify the container that holds the scrollbar. Example: jQuery(window).'
+    type: string
+    default: 'jQuery(window)'
+  infinitescrolling.container:
+    label: 'Item container selector'
+    category: 'InfiniteScrolling'
+    description: 'Define the selector for the container holding all paginated items, such as news or events. Example: div.news-list-container.'
+    type: string
+    default: ''
+  infinitescrolling.item:
+    label: 'Item selector'
+    category: 'InfiniteScrolling'
+    description: 'Specify the selector for a single item within the list container. Example: div.news-list-item.'
+    type: string
+    default: ''
+  infinitescrolling.pagination:
+    label: 'Paginator selector'
+    category: 'InfiniteScrolling'
+    description: 'Define the selector for the pagination element. This element will be hidden in the frontend. Example: div.news-list-browse.'
+    type: string
+    default: 'ul.f3-widget-paginator'
+  infinitescrolling.next:
+    label: 'Next page link selector'
+    category: 'InfiniteScrolling'
+    description: 'Specify the selector for the "Next" link within the paginator. The InfiniteScrolling script extracts the href attribute to load and append the next page’s content. Example: div.browseLinksWrap a:eq(-2).'
+    type: string
+    default: 'li.next a'
+  infinitescrolling.previous:
+    label: 'Previous page link selector'
+    category: 'InfiniteScrolling'
+    description: 'Define the selector for the "Previous" link in the paginator. The script will use the href attribute to load items from the previous page. Ensure only one element matches this selector.'
+    type: string
+    default: 'li.previous a'
+  infinitescrolling.loader.html:
+    label: 'Custom loader icon HTML'
+    category: 'InfiniteScrolling'
+    description: 'Provide custom HTML for the loader icon. Use {src} to reference the default loader icon from the InfiniteScrolling JS.'
+    type: string
+    default: '<div class="ias-spinner" style="text-align: center;"><img src="|"/></div>'
+  infinitescrolling.delay:
+    label: 'Loading delay (ms)'
+    category: 'InfiniteScrolling'
+    description: 'Set a delay (in milliseconds) before loading more items. A higher value ensures the loader icon is visible.'
+    type: int
+    default: 0
+  infinitescrolling.offset:
+    label: 'Auto-load limit'
+    category: 'InfiniteScrolling'
+    description: 'Define how many times new items should load automatically before displaying a manual "Load more" link. A high value may prevent users from reaching the footer.'
+    type: int
+    default: 5
+  infinitescrolling.negativeMargin:
+    label: 'Preload margin (px)'
+    category: 'InfiniteScrolling'
+    description: 'Set the margin (in pixels) from the last item’s lower border at which the next request starts. A higher value loads new items earlier.'
+    type: int
+    default: 200

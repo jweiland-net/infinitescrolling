@@ -7,6 +7,15 @@
 ChangeLog
 =========
 
+Version 4.0.0
+=============
+
+*   FEATURE: Add TYPO3 13 compatibility
+*   TASK: Remove TYPO3 9, 10, 11, 12 compatibility
+*   TASK: Use Site Settings for configuration
+*   TASK: Disable jquery implemetation by default.
+*   TASK: Load jquery locally. Not external, because of DSGVO
+
 Version 3.3.0
 =============
 
