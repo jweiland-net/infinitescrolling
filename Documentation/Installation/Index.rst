@@ -1,5 +1,4 @@
-..  include:: /Includes.rst.txt
-
+:navigation-title: Installation
 
 ..  _installation:
 
@@ -25,11 +24,11 @@ If you work with DDEV please execute this command:
     ddev composer req jweiland/infinitescrolling
     ddev exec vendor/bin/typo3 extension:setup --extension=infinitescrolling
 
-ExtensionManager
-================
+Extension Manager
+=================
 
 On non composer based TYPO3 installations you can
-install `infinitescrolling` still over the ExtensionManager:
+install :t3ext:`infinitescrolling` still over the Extension Manager:
 
 ..  rst-class:: bignums
 
@@ -40,18 +39,19 @@ install `infinitescrolling` still over the ExtensionManager:
 
 2.  Open ExtensionManager
 
-    Click on `Extensions` from the left menu to open the ExtensionManager.
+    Click on :guilabel:`Extensions` from the left menu to open the
+    Extension Manager.
 
 3.  Update Extensions
 
-    Choose `Get Extensions` from the upper selectbox and click on
-    the `Update now` button at the upper right.
+    Choose :guilabel:`Get Extensions` from the upper selectbox and click on
+    the :guilabel:`Update now` button at the upper right.
 
-4.  Install `infinitescrolling`
+4.  Install :t3ext:`infinitescrolling`
 
-    Use the search field to find `infinitescrolling`. Choose
-    the `infinitescrolling` line from the search result and click on the cloud
-    icon to install `infinitescrolling`.
+    Use the search field to find "infinitescrolling". Choose
+    the "infinitescrolling" line from the search result and click on the cloud
+    icon to install "infinitescrolling".
 
 Next step
 =========

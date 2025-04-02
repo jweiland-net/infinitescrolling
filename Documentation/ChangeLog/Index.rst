@@ -1,5 +1,4 @@
-..  include:: /Includes.rst.txt
-
+:navigation-title: ChangeLog
 
 ..  _changelog:
 
@@ -13,8 +12,9 @@ Version 4.0.0
 *   FEATURE: Add TYPO3 13 compatibility
 *   TASK: Remove TYPO3 9, 10, 11, 12 compatibility
 *   TASK: Use Site Settings for configuration
-*   TASK: Disable jquery implemetation by default.
+*   TASK: Disable jquery implementation by default.
 *   TASK: Load jquery locally. Not external, because of DSGVO
+*   TASK: Update documentation
 
 Version 3.3.0
 =============
