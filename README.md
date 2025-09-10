@@ -34,3 +34,9 @@ This extension is based on [Infinite Ajax Scroll](https://infiniteajaxscroll.com
 Buying a commercial license is mandatory as soon as you develop commercial activities distributing the Infinite Ajax Scroll software inside your product or deploying it on a network without disclosing the source code of your own applications under the AGPL license.
 
 See https://infiniteajaxscroll.com/licenses/ for more details.
+
+## Support
+
+Free Support is available via [Github Issue Tracker](https://github.com/jweiland-net/infinitescrolling/issues).
+
+For commercial support, please contact us at [support@jweiland.net](support@jweiland.net).
