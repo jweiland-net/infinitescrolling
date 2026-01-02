@@ -1,47 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<xliff version="1.0">
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
   <file source-language="en" target-language="da" datatype="plaintext" original="messages" date="2013-02-07T11:13:04Z" product-name="infinitescrolling">
     <header/>
     <body>
-      <trans-unit id="constants.includeJQueryLibrary" xml:space="preserve" approved="yes">
-				<source>Include jQuery: Enable this option to include jquery</source>
-			<target state="final">Inkludér jQuery: Aktivér denne indstilling for at inkludere jquery</target></trans-unit>
-      <trans-unit id="constants.scrollContainer" xml:space="preserve" approved="yes">
-				<source>jQuery selector for Scroll Container: In which container the scrollbar is placed? Sample: jQuery(window)</source>
-			<target state="final">jQuery selector til Scroll Container: Den container hvor scrollbar er placeret? Eksempel: jQuery(window)</target></trans-unit>
-      <trans-unit id="constants.container" xml:space="preserve" approved="yes">
-				<source>jQuery selector for item container: Enter the selector which selects the container which contains all f.e. news or event items you want to paginate. Sample: div.news-list-container</source>
-			<target state="final">jQuery selector til element container: Indtast selector som vælger den container som indeholder for eksempel alle nyheder eller begivenhedselementer du vil paginere. Eksempel: div.news-list-container</target></trans-unit>
-      <trans-unit id="constants.item" xml:space="preserve" approved="yes">
-				<source>jQuery selector for one single item: Enter the selector which contains exactly one single item within the list container. Sample: div.news-list-item</source>
-			<target state="final">jQuery selector til et enkelt element: Indtast selector som indeholder præcis et enkelt element i listecontaineren. Eksempel: div.news-list-item</target></trans-unit>
-      <trans-unit id="constants.pagination" xml:space="preserve" approved="yes">
-				<source>jQuery selector for Paginator: Enter the selector for the paginator. This selector will hide paginator in Frontend. Sample: div.news-list-browse</source>
-			<target state="final">jQuery selector til Paginator: Indtast selectoren for paginatoren. Denne selector vil skjule paginator i frontend. Eksempel: div.news-list-browse</target></trans-unit>
-      <trans-unit id="constants.next" xml:space="preserve" approved="yes">
-				<source>jQuery selector for next link: Enter the selector for the next link within the paginator. InfiniteScrolling will read the href attribute to read the container of next page and append it to current container. Sample: div.browseLinksWrap a:eq(-2)</source>
-			<target state="final">jQuery selector til næste link: Indtast selector til det næste link i paginatoren. InfiniteScrolling vil læse href-attributten for at læse containeren til næste side og tilføje den til den aktuelle container. Eksempel: div.browseLinksWrap a:eq(-2)</target></trans-unit>
-      <trans-unit id="constants.previous" xml:space="preserve" approved="yes">
-				<source>jQuery selector for previous link: Enter the selector for the previous link of the paginator. The href attribute of this element will be used to get the items from the previous page. Make sure there is only one element that matches the selector.</source>
-			<target state="final">jQuery selector til forrige link: Indtast selector til det forrige link til paginatoren. Attributten href til dette element vil blive brugt til at hente elementerne fra forrige side. Sørg for, at der kun er ét element, der matcher selctoren.</target></trans-unit>
-      <trans-unit id="constants.loader.html" xml:space="preserve" approved="yes">
-				<source>Change HTML of loader icon: Enter your own HTML, if you want another rendering of the loader icon. Use {src} to implement the original loader icon from infinitescrolling JS.</source>
-			<target state="final">Skift HTML af loader ikon: Indtast din egen HTML, hvis du ønsker en anden rendering af loader ikonet. Brug {src} til at implementere det originale loader-ikon fra infinitescrolling JS.</target></trans-unit>
-      <trans-unit id="constants.delay" xml:space="preserve" approved="yes">
-				<source>Define a delay until further items will be loaded: If you want the user to see the loader icon working you should set this value to something higher than 0. Value in milliseconds.</source>
-			<target state="final">Definér en forsinkelse indtil yderligere elementer vil blive indlæst: Hvis du vil have brugeren til at se at loader-ikonet virker, skal du sætte denne værdi til noget højere end 0. Værdien er angivet i millisekunder.</target></trans-unit>
-      <trans-unit id="constants.offset" xml:space="preserve" approved="yes">
-				<source>Amount of loads: How often more items should be loaded, before we show a link to manually load further items? Don't set it too high as footer may not be reachable then.</source>
-			<target state="final">Belastning: Hvor ofte skal flere elementer indlæses, før vi viser et link for manuelt at indlæse yderligere elementer? Sæt ikke værdien for højt, da footer måske ikke kan nå at blive indlæst.</target></trans-unit>
-      <trans-unit id="constants.negativeMargin" xml:space="preserve" approved="yes">
-				<source>Start next request when margin (ps) has been reached: Define a margin from the lowest border of the last item. If scrollbar reaches this margin the new request will be started. As higher the value as earlier the page will start loading further items.</source>
-			<target state="final">Start næste forespørgsel når margin (ps) er nået: Definér en margin fra den laveste kant af det sidste element. Hvis rullebjælken når denne margin, vil den nye forespørgsel blive startet. Jo højere værdi, jo tidligere vil siden begynde at indlæse yderligere elementer.</target></trans-unit>
-      <trans-unit id="loadMoreItems" xml:space="preserve" approved="yes">
+      <trans-unit id="loadMoreItems" xml:space="preserve">
 				<source>Load more items</source>
-			<target state="final">Indlæs flere elementer</target></trans-unit>
-      <trans-unit id="loadPrevItems" xml:space="preserve" approved="yes">
+			<target state="needs-translation">Load more items</target></trans-unit>
+      <trans-unit id="loadPrevItems" xml:space="preserve">
 				<source>Load previous items</source>
-			<target state="final">Indlæs tidligere elementer</target></trans-unit>
+			<target state="needs-translation">Load previous items</target></trans-unit>
     </body>
   </file>
 </xliff>
