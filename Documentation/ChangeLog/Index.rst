@@ -6,6 +6,11 @@
 ChangeLog
 =========
 
+Version 4.0.1
+=============
+
+*   BUGFIX: Add missing locallang files
+
 Version 4.0.0
 =============
 
