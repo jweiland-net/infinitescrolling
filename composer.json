@@ -1,7 +1,7 @@
 {
 	"name": "jweiland/infinitescrolling",
 	"type": "typo3-cms-extension",
-	"description": "With this extension you can read nearly every paginator and realize infinite scrolling",
+	"description": "Infinite Scrolling - With this extension you can read nearly every paginator and realize infinite scrolling",
 	"license": "GPL-2.0-or-later",
 	"keywords": [
 		"typo3",
