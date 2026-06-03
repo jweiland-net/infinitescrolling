@@ -6,6 +6,12 @@
 ChangeLog
 =========
 
+Version 4.0.2
+=============
+
+*   TASK: Add TYPO3 v14 compatibility
+*   TASK: Update XLIFF files to version 2.0
+
 Version 4.0.1
 =============
 
