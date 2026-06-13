@@ -19,14 +19,7 @@ final readonly class AddFrontendJavaScriptListener
 
     public function __invoke(BeforeJavaScriptsRenderingEvent $event): void
     {
-        $this->assetCollector->addJavaScript(
-            'infinitescrolling-jquery',
-            'EXT:infinitescrolling/Resources/Public/JavaScript/jquery-3.7.1.min.js',
-            [
-                'type' => 'module',
-                'defer' => true,
-            ]
-        );
+        $this->assetCollector->addJavaScript('infinitescrolling-jquery', 'EXT:infinitescrolling/Resources/Public/JavaScript/jquery-3.7.1.min.js');
         $this->assetCollector->addJavaScript('infinitescrolling-callback', 'EXT:infinitescrolling/Resources/Public/JavaScript/Ias/callback.js');
         $this->assetCollector->addJavaScript('infinitescrolling-ias', 'EXT:infinitescrolling/Resources/Public/JavaScript/Ias/jquery-ias.js');
         $this->assetCollector->addJavaScript('infinitescrolling-spinner', 'EXT:infinitescrolling/Resources/Public/JavaScript/Ias/Extension/Spinner.js');

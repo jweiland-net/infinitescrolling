@@ -1,15 +1,11 @@
 services:
   _defaults:
     autowire: true
-    # Wir deaktivieren autoconfigure, da wir den Tag manuell setzen.
     autoconfigure: false
     public: false
 
-  # Wir deklarieren den Service explizit mit seinem vollen Klassennamen.
-  # Das verlässt sich auf den Composer Autoloader, den wir repariert haben.
   JWeiland\Infinitescrolling\EventListener\AddFrontendJavaScriptListener:
     public: true
-    # Wir fügen den Tag manuell hinzu. Das ist die robusteste Methode.
     tags:
       - name: event.listener
         identifier: 'jweiland-infinitescrolling/add-frontend-javascript'
