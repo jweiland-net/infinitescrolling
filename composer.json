@@ -24,10 +24,15 @@
 	  "source": "https://github.com/jweiland-net/infinitescrolling"
 	},
 	"require": {
-		"typo3/cms-core": "^14.4"
+		"typo3/cms-core": "^14.3"
 	},
 	"require-dev": {
 		"roave/security-advisories": "dev-latest"
+	},
+	"autoload": {
+		"psr-4": {
+			"JWeiland\\Infinitescrolling\\": "Classes/"
+		}
 	},
 	"replace": {
 		"typo3-ter/infinitescrolling": "self.version"

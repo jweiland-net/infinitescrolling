@@ -1,17 +1,3 @@
-page.includeJSFooter {
-  jQueryForInfiniteScrolling = EXT:infinitescrolling/Resources/Public/JavaScript/jquery-3.7.1.min.js
-  jQueryForInfiniteScrolling.excludeFromConcatenation = 1
-  jQueryForInfiniteScrolling.disableCompression = 1
-  jQueryForInfiniteScrolling.if.isTrue = {$infinitescrolling.includeJQueryLibrary}
-
-  infiniteScrolling_callback = EXT:infinitescrolling/Resources/Public/JavaScript/Ias/callback.js
-  infiniteScrolling_ias = EXT:infinitescrolling/Resources/Public/JavaScript/Ias/jquery-ias.js
-  infiniteScrolling_spinner = EXT:infinitescrolling/Resources/Public/JavaScript/Ias/Extension/Spinner.js
-  infiniteScrolling_paging = EXT:infinitescrolling/Resources/Public/JavaScript/Ias/Extension/Paging.js
-  infiniteScrolling_trigger = EXT:infinitescrolling/Resources/Public/JavaScript/Ias/Extension/Trigger.js
-  infiniteScrolling_history = EXT:infinitescrolling/Resources/Public/JavaScript/Ias/Extension/History.js
-}
-
 page.jsFooterInline {
   1519224720 = COA
   1519224720 {
