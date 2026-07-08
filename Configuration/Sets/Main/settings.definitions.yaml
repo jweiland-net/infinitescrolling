@@ -14,7 +14,7 @@ settings:
     category: 'InfiniteScrolling'
     description: 'Specify the container that holds the scrollbar. Example: jQuery(window).'
     type: string
-    default: 'jQuery(window)'
+    default: 'window'
   infinitescrolling.container:
     label: 'Item container selector'
     category: 'InfiniteScrolling'
