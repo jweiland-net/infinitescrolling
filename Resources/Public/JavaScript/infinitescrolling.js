@@ -27,9 +27,15 @@
       negativeMargin: config.negativeMargin
     });
 
-    ias.extension(new IASSpinnerExtension({
+    const spinnerOptions = {
       html: config.loaderHtml
-    }));
+    };
+
+    if (config.loaderSrc) {
+      spinnerOptions.src = config.loaderSrc;
+    }
+
+    ias.extension(new IASSpinnerExtension(spinnerOptions));
 
     ias.extension(new IASPagingExtension());
 

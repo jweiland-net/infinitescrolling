@@ -48,9 +48,15 @@ settings:
   infinitescrolling.loader.html:
     label: 'Custom loader icon HTML'
     category: 'InfiniteScrolling'
-    description: 'Provide custom HTML for the loader icon. Use {src} to reference the default loader icon from the InfiniteScrolling JS.'
+    description: 'Provide custom HTML for the loader icon. Use {src} to reference the loader icon path, either the default one or the one set via "Custom loader icon path".'
     type: string
-    default: '<div class="ias-spinner" style="text-align: center;"><img src="|"/></div>'
+    default: '<div class="ias-spinner" style="text-align: center;"><img src="{src}"/></div>'
+  infinitescrolling.loader.src:
+    label: 'Custom loader icon path'
+    category: 'InfiniteScrolling'
+    description: 'Provide a custom path to a loader icon, e.g. "EXT:my_sitepackage/Resources/Public/Icons/spinner.gif". Leave empty to use the default loader icon.'
+    type: string
+    default: ''
   infinitescrolling.delay:
     label: 'Loading delay (ms)'
     category: 'InfiniteScrolling'
