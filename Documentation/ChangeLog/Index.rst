@@ -6,11 +6,19 @@
 ChangeLog
 =========
 
-Version 4.0.2
+Version 4.1.0
 =============
 
+*   FEATURE: Add event listener to include frontend JavaScript, replacing the
+    former TypoScript based inclusion
+*   FEATURE: Add configurable custom loader icon path
+*   FEATURE: Add Content Security Policy mutation to allow the extension's
+    inline configuration script under a strict CSP
+*   BUGFIX: Resolve scroll container selector safely in JavaScript instead of
+    injecting the site setting value as raw JavaScript code
 *   TASK: Add TYPO3 v14 compatibility
 *   TASK: Update XLIFF files to version 2.0
+*   TASK: Simplify JavaScript inclusion and clean up Services.yaml
 
 Version 4.0.1
 =============

@@ -45,12 +45,13 @@ and scroll down to :guilabel:`Infinite Scrolling`.
 
 ..  confval:: Scroll container selector
     :type: string
-    :Default: jQuery(window)
+    :Default: window
     :Path: infinitescrolling.scrollContainer
 
-    Define the jQuery selector for the scroll container.
+    Define the scroll container. Use `window` to bind the scrolling to the
+    browser window, or provide a jQuery selector for a scrollable element.
 
-    Sample: `jQuery(window)`
+    Sample: `window`
 
 ..  confval:: Item container selector
     :type: string
