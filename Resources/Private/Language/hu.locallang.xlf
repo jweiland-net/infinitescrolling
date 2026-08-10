@@ -5,10 +5,10 @@
     <body>
       <trans-unit id="loadMoreItems" xml:space="preserve">
 				<source>Load more items</source>
-			<target state="needs-translation">Load more items</target></trans-unit>
+			<target state="translated">További elemek betöltése</target></trans-unit>
       <trans-unit id="loadPrevItems" xml:space="preserve">
 				<source>Load previous items</source>
-			<target state="needs-translation">Load previous items</target></trans-unit>
+			<target state="translated">Korábbi elemek betöltése</target></trans-unit>
     </body>
   </file>
 </xliff>
