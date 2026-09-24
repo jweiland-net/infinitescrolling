@@ -1,11 +1,8 @@
 services:
   _defaults:
     autowire: true
-    autoconfigure: false
+    autoconfigure: true
     public: false
 
-  JWeiland\Infinitescrolling\EventListener\AddFrontendJavaScriptListener:
-    public: true
-    tags:
-      - name: event.listener
-        identifier: 'jweiland-infinitescrolling/add-frontend-javascript'
+  JWeiland\Infinitescrolling\:
+    resource: '../Classes/*'
