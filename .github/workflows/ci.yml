@@ -1,0 +1,39 @@
+name: Tests
+
+on: [pull_request]
+
+jobs:
+  testing:
+    name: Testing
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: true
+
+      matrix:
+        php:
+          - '8.2'
+          - '8.3'
+
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v6
+
+      - name: 'Lint PHP'
+        run: Build/Scripts/runTests.sh -b docker -p ${{ matrix.php }} -s lint
+
+      - name: 'Install testing system'
+        run: Build/Scripts/runTests.sh -b docker -p ${{ matrix.php }} -s composerUpdate
+
+      - name: 'Composer validate'
+        run: Build/Scripts/runTests.sh -b docker -p ${{ matrix.php }} -s composerValidate
+
+      - name: 'Composer normalize'
+        run: Build/Scripts/runTests.sh -b docker -p ${{ matrix.php }} -s composerNormalize -n
+
+      - name: 'CGL'
+        run: Build/Scripts/runTests.sh -b docker -n -p ${{ matrix.php }} -s cgl
+
+      # Unit and functional tests are not executed yet, because this extension has no tests so far.
+      # Copy the corresponding steps from EXT:jobboard as soon as tests exist in Tests/Unit or Tests/Functional.

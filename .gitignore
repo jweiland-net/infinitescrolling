@@ -27,6 +27,7 @@ nbproject
 # Temporary files and folders
 /.cache
 .Build
+/var/
 .php_cs.cache
 .php-cs-fixer.cache
 .sass-cache

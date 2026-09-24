@@ -6,9 +6,11 @@
 ChangeLog
 =========
 
-Version 4.1.0
+Version 5.0.0
 =============
 
+*   TASK: Add TYPO3 14 compatibility
+*   TASK: Remove TYPO3 13 compatibility
 *   FEATURE: Add event listener to include frontend JavaScript, replacing the
     former TypoScript based inclusion
 *   FEATURE: Add configurable custom loader icon path
@@ -16,9 +18,12 @@ Version 4.1.0
     inline configuration script under a strict CSP
 *   BUGFIX: Resolve scroll container selector safely in JavaScript instead of
     injecting the site setting value as raw JavaScript code
-*   TASK: Add TYPO3 v14 compatibility
 *   TASK: Update XLIFF files to version 2.0
 *   TASK: Simplify JavaScript inclusion and clean up Services.yaml
+*   TASK: Include JavaScript only if the site set is assigned to the current
+    site
+*   TASK: Define extension version in composer.json and remove ext_emconf.php
+*   TASK: Add Build folder and GitHub workflows for CI and TER release
 
 Version 4.0.1
 =============
