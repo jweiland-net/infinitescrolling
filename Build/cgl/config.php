@@ -187,8 +187,8 @@ return (new \PhpCsFixer\Config())
         (new PhpCsFixer\Finder())
             ->ignoreVCSIgnored(true)
             ->in(__DIR__ . '/../../')
-            ->exclude(__DIR__ . '/../../.Build')
-            ->exclude(__DIR__ . '/../../var'),
+            // Paths passed to exclude() must be relative to the directory given in in()
+            ->exclude(['.Build', 'var']),
     )
     ->setRiskyAllowed(true)
     ->setRules($mergedRules);
