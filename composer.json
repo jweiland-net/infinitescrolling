@@ -1,8 +1,8 @@
 {
 	"name": "jweiland/infinitescrolling",
-	"type": "typo3-cms-extension",
-	"description": "With this extension you can read nearly every paginator and realize infinite scrolling",
+	"description": "Infinite Scrolling - With this extension you can read nearly every paginator and realize infinite scrolling",
 	"license": "GPL-2.0-or-later",
+	"type": "typo3-cms-extension",
 	"keywords": [
 		"typo3",
 		"TYPO3 CMS",
@@ -10,7 +10,6 @@
 		"scrolling",
 		"infinitescrolling"
 	],
-	"homepage": "https://jweiland.net",
 	"authors": [
 		{
 			"name": "Stefan Froemken",
@@ -18,23 +17,53 @@
 			"role": "Lead Developer"
 		}
 	],
+	"homepage": "https://jweiland.net",
 	"support": {
-	  "email": "projects@jweiland.net",
-	  "issues": "https://github.com/jweiland-net/infinitescrolling/issues",
-	  "source": "https://github.com/jweiland-net/infinitescrolling"
+		"email": "projects@jweiland.net",
+		"issues": "https://github.com/jweiland-net/infinitescrolling/issues",
+		"source": "https://github.com/jweiland-net/infinitescrolling"
 	},
 	"require": {
-		"typo3/cms-core": "^13.4.3"
+		"php": "^8.2",
+		"typo3/cms-core": "^14.3"
 	},
 	"require-dev": {
-		"roave/security-advisories": "dev-latest"
+		"ergebnis/composer-normalize": "^2.44",
+		"roave/security-advisories": "dev-latest",
+		"typo3/coding-standards": "^0.8",
+		"typo3/testing-framework": "^9.5"
 	},
 	"replace": {
 		"typo3-ter/infinitescrolling": "self.version"
 	},
+	"autoload": {
+		"psr-4": {
+			"JWeiland\\Infinitescrolling\\": "Classes/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"JWeiland\\Infinitescrolling\\Tests\\": "Tests/"
+		}
+	},
+	"config": {
+		"allow-plugins": {
+			"ergebnis/composer-normalize": true,
+			"typo3/class-alias-loader": true,
+			"typo3/cms-composer-installers": true
+		},
+		"bin-dir": ".Build/bin",
+		"sort-packages": true,
+		"vendor-dir": ".Build/vendor"
+	},
 	"extra": {
 		"typo3/cms": {
-			"extension-key": "infinitescrolling"
+			"Package": {
+				"providesPackages": {}
+			},
+			"extension-key": "infinitescrolling",
+			"version": "5.0.0",
+			"web-dir": ".Build/web"
 		}
 	}
 }

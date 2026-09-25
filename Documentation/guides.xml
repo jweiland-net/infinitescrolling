@@ -8,16 +8,18 @@
 >
     <project
         title="Infinite Scrolling"
+        release="5.0.0"
+        version="5.0"
         copyright="The contributors"
     />
     <extension
         class="\T3Docs\Typo3DocsTheme\DependencyInjection\Typo3DocsThemeExtension"
-        edit-on-github="jweiland/infinitescrolling"
+        edit-on-github="jweiland-net/infinitescrolling"
         edit-on-github-branch="main"
         interlink-shortcode="jweiland/infinitescrolling"
-        project-home="https://github.com/jweiland/infinitescrolling"
-        project-issues="https://github.com/jweiland/infinitescrolling/issues"
-        project-repository="https://github.com/jweiland/infinitescrolling"
+        project-home="https://github.com/jweiland-net/infinitescrolling"
+        project-issues="https://github.com/jweiland-net/infinitescrolling/issues"
+        project-repository="https://github.com/jweiland-net/infinitescrolling"
         typo3-core-preferred="stable"
     />
 </guides>

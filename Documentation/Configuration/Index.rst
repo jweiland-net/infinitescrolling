@@ -45,12 +45,13 @@ and scroll down to :guilabel:`Infinite Scrolling`.
 
 ..  confval:: Scroll container selector
     :type: string
-    :Default: jQuery(window)
+    :Default: window
     :Path: infinitescrolling.scrollContainer
 
-    Define the jQuery selector for the scroll container.
+    Define the scroll container. Use `window` to bind the scrolling to the
+    browser window, or provide a jQuery selector for a scrollable element.
 
-    Sample: `jQuery(window)`
+    Sample: `window`
 
 ..  confval:: Item container selector
     :type: string
@@ -110,13 +111,25 @@ and scroll down to :guilabel:`Infinite Scrolling`.
 
 ..  confval:: Custom loader icon HTML
     :type: string
-    :Default: <div class="ias-spinner" style="text-align: center;"><img src="|"/></div>
+    :Default: <div class="ias-spinner" style="text-align: center;"><img src="{src}"/></div>
     :Path: infinitescrolling.loader.html
 
     Customize the loader icon by specifying your own HTML. Use {src} to include
-    the original loader icon from Infinite Scrolling JS.
+    the loader icon path, either the default one or the one set via
+    "Custom loader icon path".
 
-    Sample: `<div class="ias-spinner" style="text-align: center;"><img src="|"/></div>`
+    Sample: `<div class="ias-spinner" style="text-align: center;"><img src="{src}"/></div>`
+
+..  confval:: Custom loader icon path
+    :type: string
+    :Default:
+    :Path: infinitescrolling.loader.src
+
+    Provide a custom path to a loader icon, e.g.
+    `EXT:my_sitepackage/Resources/Public/Icons/spinner.gif`. Leave empty to use
+    the default loader icon.
+
+    Sample: `EXT:my_sitepackage/Resources/Public/Icons/spinner.gif`
 
 ..  confval:: Loading delay (ms)
     :type: int

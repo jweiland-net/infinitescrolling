@@ -1,14 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2013-02-07T11:13:04Z" product-name="infinitescrolling">
-		<header/>
-		<body>
-			<trans-unit id="loadMoreItems" xml:space="preserve" approved="yes">
-				<source>Load more items</source>
-			</trans-unit>
-			<trans-unit id="loadPrevItems" xml:space="preserve" approved="yes">
-				<source>Load previous items</source>
-			</trans-unit>
-		</body>
-	</file>
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en">
+    <file id="f1">
+        <unit id="loadMoreItems">
+            <segment>
+                <source>Load more items</source>
+            </segment>
+        </unit>
+        <unit id="loadPrevItems">
+            <segment>
+                <source>Load previous items</source>
+            </segment>
+        </unit>
+    </file>
 </xliff>
