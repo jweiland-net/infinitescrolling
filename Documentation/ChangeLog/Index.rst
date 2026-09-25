@@ -6,6 +6,12 @@
 ChangeLog
 =========
 
+Version 5.0.1
+=============
+
+*   BUGFIX: Add ext_emconf.php again, as the TER upload with tailor still
+    requires it
+
 Version 5.0.0
 =============
 
