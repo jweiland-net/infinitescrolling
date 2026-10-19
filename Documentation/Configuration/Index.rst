@@ -161,3 +161,80 @@ and scroll down to :guilabel:`Infinite Scrolling`.
     request starts. A higher value loads items earlier.
 
     Sample: `130`
+
+..  _configuration-ias-extensions:
+
+IAS extensions
+==============
+
+Infinite AJAX Scroll ships several extensions. Each of them can be enabled or
+disabled in the :guilabel:`IAS extensions` category of the Site Settings. Only
+the JavaScript files of enabled extensions are loaded in the frontend.
+
+..  confval:: Enable spinner extension
+    :type: boolean
+    :Default: true
+    :Path: infinitescrolling.extension.spinner
+
+    Shows the loader icon while new items are loaded. See
+    "Custom loader icon HTML" and "Custom loader icon path".
+
+..  confval:: Enable paging extension
+    :type: boolean
+    :Default: true
+    :Path: infinitescrolling.extension.paging
+
+    Keeps track of the page the visitor is currently viewing. Required by the
+    history extension.
+
+..  confval:: Enable trigger extension
+    :type: boolean
+    :Default: true
+    :Path: infinitescrolling.extension.trigger
+
+    Shows the "Load more items" and "Load previous items" links. See
+    "Auto-load limit".
+
+..  confval:: Enable history extension
+    :type: boolean
+    :Default: true
+    :Path: infinitescrolling.extension.history
+
+    Updates the URL while scrolling, so the back button of the browser and
+    shared links lead to the current page. Requires the paging extension.
+
+..  confval:: Enable "none left" extension
+    :type: boolean
+    :Default: false
+    :Path: infinitescrolling.extension.noneLeft
+
+    Shows a message below the last item when there are no more pages to load.
+    The text is translated via the label `noneLeftItems` in
+    `EXT:infinitescrolling/Resources/Private/Language/locallang.xlf`.
+
+..  confval:: HTML of the "none left" message
+    :type: string
+    :Default: <div class="ias-noneleft" style="text-align: center;">{text}</div>
+    :Path: infinitescrolling.noneLeft.html
+
+    HTML of the message shown by the "none left" extension. Use {text} to
+    insert the translated text.
+
+..  _configuration-javascript-event:
+
+Add your own IAS extensions
+===========================
+
+After Infinite AJAX Scroll has been initialized, the JavaScript event
+`infinitescrolling:initialized` is dispatched on `document`. Its `detail`
+contains the IAS instance (`ias`) and the configuration (`config`). Use it to
+register further IAS extensions or callbacks in your own JavaScript, which has
+to be loaded before the DOM is ready:
+
+..  code-block:: javascript
+
+    document.addEventListener('infinitescrolling:initialized', (event) => {
+      event.detail.ias.on('rendered', (items) => {
+        // e.g. re-initialize a lightbox for the newly loaded items
+      });
+    });
