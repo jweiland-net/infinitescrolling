@@ -51,6 +51,7 @@ A working example can be found at
 
     Installation/Index
     Configuration/Index
+    Upgrade/Index
     */Index
     *
 

@@ -6,6 +6,20 @@
 ChangeLog
 =========
 
+Version 5.1.0
+=============
+
+*   FEATURE: Enable or disable each IAS extension via Site Settings
+*   FEATURE: Add IAS "none left" extension, disabled by default
+*   FEATURE: Dispatch JavaScript event `infinitescrolling:initialized` to
+    register further IAS extensions
+*   BUGFIX: Use the defaults of the Site Settings definitions in the
+    frontend
+*   BUGFIX: Remove Content Security Policy mutation already defined by core
+*   TASK: Move Site Settings labels to translatable labels.xlf files
+*   TASK: Run Rector in CI and test PHP 8.4 and 8.5
+*   DOCS: Add upgrade instructions for the breaking changes of 5.0.0
+
 Version 5.0.1
 =============
 

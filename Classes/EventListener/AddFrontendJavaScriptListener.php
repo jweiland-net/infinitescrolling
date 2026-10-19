@@ -32,15 +32,26 @@ final readonly class AddFrontendJavaScriptListener
 
     private const JAVASCRIPT_PATH = 'EXT:infinitescrolling/Resources/Public/JavaScript/';
 
-    private const JAVASCRIPT_FILES = [
+    /**
+     * Infinite AJAX Scroll core, always required
+     */
+    private const IAS_FILES = [
         'infinitescrolling-callback' => 'Ias/callback.js',
         'infinitescrolling-ias' => 'Ias/jquery-ias.js',
-        'infinitescrolling-spinner' => 'Ias/Extension/Spinner.js',
-        'infinitescrolling-paging' => 'Ias/Extension/Paging.js',
-        'infinitescrolling-trigger' => 'Ias/Extension/Trigger.js',
-        'infinitescrolling-history' => 'Ias/Extension/History.js',
-        'infinitescrolling-init' => 'infinitescrolling.js',
     ];
+
+    /**
+     * IAS extensions, each enabled by the site setting "infinitescrolling.extension.<name>"
+     */
+    private const IAS_EXTENSION_FILES = [
+        'spinner' => 'Ias/Extension/Spinner.js',
+        'paging' => 'Ias/Extension/Paging.js',
+        'trigger' => 'Ias/Extension/Trigger.js',
+        'history' => 'Ias/Extension/History.js',
+        'noneLeft' => 'Ias/Extension/NoneLeft.js',
+    ];
+
+    private const LANGUAGE_FILE = 'LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:';
 
     public function __construct(
         private AssetCollector $assetCollector,
@@ -68,36 +79,47 @@ final readonly class AddFrontendJavaScriptListener
             return;
         }
 
-        $settings = $site->getConfiguration()['settings']['infinitescrolling'] ?? [];
+        // Site settings include the defaults of settings.definitions.yaml
+        $settings = $site->getSettings();
 
-        if (($settings['includeJQueryLibrary'] ?? false) === true) {
+        if ($settings->get('infinitescrolling.includeJQueryLibrary') === true) {
             $this->assetCollector->addJavaScript('infinitescrolling-jquery', self::JAVASCRIPT_PATH . 'jquery-3.7.1.min.js');
         }
 
-        foreach (self::JAVASCRIPT_FILES as $identifier => $file) {
+        foreach (self::IAS_FILES as $identifier => $file) {
             $this->assetCollector->addJavaScript($identifier, self::JAVASCRIPT_PATH . $file);
         }
+
+        $enabledExtensions = [];
+        foreach (self::IAS_EXTENSION_FILES as $extension => $file) {
+            $enabledExtensions[$extension] = $settings->get('infinitescrolling.extension.' . $extension) === true;
+            if ($enabledExtensions[$extension]) {
+                $identifier = 'infinitescrolling-' . strtolower($extension);
+                $this->assetCollector->addJavaScript($identifier, self::JAVASCRIPT_PATH . $file);
+            }
+        }
+
+        $this->assetCollector->addJavaScript('infinitescrolling-init', self::JAVASCRIPT_PATH . 'infinitescrolling.js');
 
         $languageService = $this->languageServiceFactory->createFromSiteLanguage($request->getAttribute('language'));
 
         $config = [
-            'container' => $settings['container'] ?? '',
-            'scrollContainer' => $settings['scrollContainer'] ?? 'window',
-            'item' => $settings['item'] ?? '',
-            'pagination' => $settings['pagination'] ?? '',
-            'next' => $settings['next'] ?? '',
-            'previous' => $settings['previous'] ?? '',
-            'delay' => (int)($settings['delay'] ?? 600),
-            'negativeMargin' => (int)($settings['negativeMargin'] ?? 0),
-            'offset' => (int)($settings['offset'] ?? 0),
-            'loaderHtml' => $settings['loader']['html'] ?? '',
-            'loaderSrc' => $this->resolveLoaderSrc($settings['loader']['src'] ?? '', $request),
-            'loadMoreText' => $languageService->sL(
-                'LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:loadMoreItems',
-            ),
-            'loadPrevText' => $languageService->sL(
-                'LLL:EXT:infinitescrolling/Resources/Private/Language/locallang.xlf:loadPrevItems',
-            ),
+            'container' => (string)$settings->get('infinitescrolling.container', ''),
+            'scrollContainer' => (string)$settings->get('infinitescrolling.scrollContainer', 'window'),
+            'item' => (string)$settings->get('infinitescrolling.item', ''),
+            'pagination' => (string)$settings->get('infinitescrolling.pagination', ''),
+            'next' => (string)$settings->get('infinitescrolling.next', ''),
+            'previous' => (string)$settings->get('infinitescrolling.previous', ''),
+            'delay' => (int)$settings->get('infinitescrolling.delay', 0),
+            'negativeMargin' => (int)$settings->get('infinitescrolling.negativeMargin', 0),
+            'offset' => (int)$settings->get('infinitescrolling.offset', 0),
+            'extensions' => $enabledExtensions,
+            'loaderHtml' => (string)$settings->get('infinitescrolling.loader.html', ''),
+            'loaderSrc' => $this->resolveLoaderSrc((string)$settings->get('infinitescrolling.loader.src', ''), $request),
+            'noneLeftHtml' => (string)$settings->get('infinitescrolling.noneLeft.html', ''),
+            'loadMoreText' => $languageService->sL(self::LANGUAGE_FILE . 'loadMoreItems'),
+            'loadPrevText' => $languageService->sL(self::LANGUAGE_FILE . 'loadPrevItems'),
+            'noneLeftText' => $languageService->sL(self::LANGUAGE_FILE . 'noneLeftItems'),
         ];
 
         $this->assetCollector->addInlineJavaScript(

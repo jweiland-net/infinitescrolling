@@ -38,3 +38,5 @@ nbproject
 # Ignore composer stuff
 /composer.lock
 composer.json.testing
+/Build/rector/.Build/
+/Build/rector/composer.lock

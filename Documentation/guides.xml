@@ -8,8 +8,8 @@
 >
     <project
         title="Infinite Scrolling"
-        release="5.0.1"
-        version="5.0"
+        release="5.1.0"
+        version="5.1"
         copyright="The contributors"
     />
     <extension
