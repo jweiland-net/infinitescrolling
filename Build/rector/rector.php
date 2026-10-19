@@ -10,7 +10,6 @@ declare(strict_types=1);
  */
 
 use Rector\Config\RectorConfig;
-use Rector\TypeDeclaration\Rector\Class_\TypedPropertyFromCreateMockAssignRector;
 use Rector\TypeDeclaration\Rector\StmtsAwareInterface\SafeDeclareStrictTypesRector;
 use Rector\ValueObject\PhpVersion;
 use Ssch\TYPO3Rector\CodeQuality\General\ExtEmConfRector;
@@ -22,7 +21,6 @@ return RectorConfig::configure()
     ->withPaths([
         __DIR__ . '/../../Classes',
         __DIR__ . '/../../Configuration',
-        __DIR__ . '/../../Tests',
     ])
     ->withPreparedSets(
         deadCode: true,
@@ -48,10 +46,6 @@ return RectorConfig::configure()
     ->withSkip([
         SafeDeclareStrictTypesRector::class => [
             '*ext_emconf.php',
-        ],
-        // Avoid stripping class types from mock properties to keep IDE autocomplete working in functional tests
-        TypedPropertyFromCreateMockAssignRector::class => [
-            '*/Tests/Functional/*',
         ],
         '*Build/*',
         '*Resources/*',
