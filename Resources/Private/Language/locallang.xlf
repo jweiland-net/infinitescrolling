@@ -11,5 +11,10 @@
                 <source>Load previous items</source>
             </segment>
         </unit>
+        <unit id="noneLeftItems">
+            <segment>
+                <source>No more items available.</source>
+            </segment>
+        </unit>
     </file>
 </xliff>

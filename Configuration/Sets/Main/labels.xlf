@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en">
+    <file id="f1">
+        <unit id="label">
+            <segment>
+                <source>Infinite Scrolling</source>
+            </segment>
+        </unit>
+        <unit id="categories.InfiniteScrolling">
+            <segment>
+                <source>Infinite Scrolling</source>
+            </segment>
+        </unit>
+        <unit id="categories.InfiniteScrolling.extensions">
+            <segment>
+                <source>IAS extensions</source>
+            </segment>
+        </unit>
+        <unit id="settings.infinitescrolling.includeJQueryLibrary">
+            <segment>
+                <source>Include jQuery</source>
+            </segment>
+        </unit>
+        <unit id="settings.description.infinitescrolling.includeJQueryLibrary">
+            <segment>
+                <source>Enable this option to load the jQuery library if it is not already included.</source>
+            </segment>
+        </unit>
+        <unit id="settings.infinitescrolling.scrollContainer">
+            <segment>
+                <source>Scroll container selector</source>
+            </segment>
+        </unit>
+        <unit id="settings.description.infinitescrolling.scrollContainer">
+            <segment>
+                <source>Specify the element that holds the scrollbar, either "window" or a CSS selector. Example: div.scroll-area.</source>
+            </segment>
+        </unit>
+        <unit id="settings.infinitescrolling.container">
+            <segment>
+                <source>Item container selector</source>
+            </segment>
+        </unit>
+        <unit id="settings.description.infinitescrolling.container">
+            <segment>
+                <source>Define the selector for the container holding all paginated items, such as news or events. Example: div.news-list-container.</source>
+            </segment>
+        </unit>
+        <unit id="settings.infinitescrolling.item">
+            <segment>
+                <source>Item selector</source>
+            </segment>
+        </unit>
+        <unit id="settings.description.infinitescrolling.item">
+            <segment>
+                <source>Specify the selector for a single item within the list container. Example: div.news-list-item.</source>
+            </segment>
+        </unit>
+        <unit id="settings.infinitescrolling.pagination">
+            <segment>
+                <source>Paginator selector</source>
+            </segment>
+        </unit>
+        <unit id="settings.description.infinitescrolling.pagination">
+            <segment>
+                <source>Define the selector for the pagination element. This element will be hidden in the frontend. Example: div.news-list-browse.</source>
+            </segment>
+        </unit>
+        <unit id="settings.infinitescrolling.next">
+            <segment>
+                <source>Next page link selector</source>
+            </segment>
+        </unit>
+        <unit id="settings.description.infinitescrolling.next">
+            <segment>
+                <source>Specify the selector for the "Next" link within the paginator. Its href attribute is used to load and append the content of the next page. Example: div.browseLinksWrap a:eq(-2).</source>
+            </segment>
+        </unit>
+        <unit id="settings.infinitescrolling.previous">
+            <segment>
+                <source>Previous page link selector</source>
+            </segment>
+        </unit>
+        <unit id="settings.description.infinitescrolling.previous">
+            <segment>
+                <source>Define the selector for the "Previous" link in the paginator. Its href attribute is used to load items from the previous page. Ensure only one element matches this selector.</source>
+            </segment>
+        </unit>
+        <unit id="settings.infinitescrolling.loader.html">
+            <segment>
+                <source>Custom loader icon HTML</source>
+            </segment>
+        </unit>
+        <unit id="settings.description.infinitescrolling.loader.html">
+            <segment>
+                <source>Provide custom HTML for the loader icon. Use {src} to reference the loader icon path, either the default one or the one set via "Custom loader icon path".</source>
+            </segment>
+        </unit>
+        <unit id="settings.infinitescrolling.loader.src">
+            <segment>
+                <source>Custom loader icon path</source>
+            </segment>
+        </unit>
+        <unit id="settings.description.infinitescrolling.loader.src">
+            <segment>
+                <source>Provide a custom path to a loader icon, e.g. "EXT:my_sitepackage/Resources/Public/Icons/spinner.gif". Leave empty to use the default loader icon.</source>
+            </segment>
+        </unit>
+        <unit id="settings.infinitescrolling.delay">
+            <segment>
+                <source>Loading delay (ms)</source>
+            </segment>
+        </unit>
+        <unit id="settings.description.infinitescrolling.delay">
+            <segment>
+                <source>Set a delay (in milliseconds) before loading more items. A higher value ensures the loader icon is visible.</source>
+            </segment>
+        </unit>
+        <unit id="settings.infinitescrolling.offset">
+            <segment>
+                <source>Auto-load limit</source>
+            </segment>
+        </unit>
+        <unit id="settings.description.infinitescrolling.offset">
+            <segment>
+                <source>Define how many times new items should load automatically before displaying a manual "Load more" link. A high value may prevent users from reaching the footer.</source>
+            </segment>
+        </unit>
+        <unit id="settings.infinitescrolling.negativeMargin">
+            <segment>
+                <source>Preload margin (px)</source>
+            </segment>
+        </unit>
+        <unit id="settings.description.infinitescrolling.negativeMargin">
+            <segment>
+                <source>Set the margin (in pixels) from the last item's lower border at which the next request starts. A higher value loads new items earlier.</source>
+            </segment>
+        </unit>
+        <unit id="settings.infinitescrolling.extension.spinner">
+            <segment>
+                <source>Enable spinner extension</source>
+            </segment>
+        </unit>
+        <unit id="settings.description.infinitescrolling.extension.spinner">
+            <segment>
+                <source>Shows the loader icon while new items are loaded.</source>
+            </segment>
+        </unit>
+        <unit id="settings.infinitescrolling.extension.paging">
+            <segment>
+                <source>Enable paging extension</source>
+            </segment>
+        </unit>
+        <unit id="settings.description.infinitescrolling.extension.paging">
+            <segment>
+                <source>Keeps track of the page the visitor is currently viewing. Required by the history extension.</source>
+            </segment>
+        </unit>
+        <unit id="settings.infinitescrolling.extension.trigger">
+            <segment>
+                <source>Enable trigger extension</source>
+            </segment>
+        </unit>
+        <unit id="settings.description.infinitescrolling.extension.trigger">
+            <segment>
+                <source>Shows the "Load more items" and "Load previous items" links. See "Auto-load limit".</source>
+            </segment>
+        </unit>
+        <unit id="settings.infinitescrolling.extension.history">
+            <segment>
+                <source>Enable history extension</source>
+            </segment>
+        </unit>
+        <unit id="settings.description.infinitescrolling.extension.history">
+            <segment>
+                <source>Updates the URL while scrolling, so the browser's back button and shared links lead to the current page. Requires the paging extension.</source>
+            </segment>
+        </unit>
+        <unit id="settings.infinitescrolling.extension.noneLeft">
+            <segment>
+                <source>Enable "none left" extension</source>
+            </segment>
+        </unit>
+        <unit id="settings.description.infinitescrolling.extension.noneLeft">
+            <segment>
+                <source>Shows a message below the last item when there are no more pages to load.</source>
+            </segment>
+        </unit>
+        <unit id="settings.infinitescrolling.noneLeft.html">
+            <segment>
+                <source>HTML of the "none left" message</source>
+            </segment>
+        </unit>
+        <unit id="settings.description.infinitescrolling.noneLeft.html">
+            <segment>
+                <source>HTML of the message shown by the "none left" extension. Use {text} to insert the translated text.</source>
+            </segment>
+        </unit>
+    </file>
+</xliff>

@@ -13,5 +13,11 @@
                 <target>Vorherige Einträge laden</target>
             </segment>
         </unit>
+        <unit id="noneLeftItems">
+            <segment state="final">
+                <source>No more items available.</source>
+                <target>Keine weiteren Einträge vorhanden.</target>
+            </segment>
+        </unit>
     </file>
 </xliff>
