@@ -56,7 +56,7 @@
 				"providesPackages": {}
 			},
 			"extension-key": "infinitescrolling",
-			"version": "5.0.1",
+			"version": "5.1.0",
 			"web-dir": ".Build/web"
 		}
 	}
