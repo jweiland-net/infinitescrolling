@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en">
+  <file id="f1" target-language="t3">
+    <unit id="loadMoreItems">
+      <segment>
+        <source>Load more items</source>
+      </segment>
+    </unit>
+    <unit id="loadPrevItems">
+      <segment>
+        <source>Load previous items</source>
+      </segment>
+    </unit>
+  </file>
+</xliff>
